@@ -1,0 +1,43 @@
+.Header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon{
+    width:70px;
+}
+
+ul{
+    display: flex;
+}
+
+li{
+    list-style-type: none;
+    margin:12px;
+}
+
+a{
+    color:black;
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 30px;
+}
+
+a:hover {
+    background-color: rgb(35, 130, 35);
+}
+
+input{
+    margin-top:15px;
+    width:250px;
+    height:32px;
+}
+
+.profile{
+    width:60px;
+    height:60px;
+    border-radius: 50%;
+    background-color: brown;
+}

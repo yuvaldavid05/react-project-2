@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
-import ErrorPage from './../ErrorPage/ErrorPage';
+import ErrorPage from '../Navbar/ErrorPage/ErrorPage';
 
 
 export default function ArticlePage() {

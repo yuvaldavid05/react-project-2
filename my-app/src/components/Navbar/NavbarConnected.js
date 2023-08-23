@@ -5,8 +5,7 @@ function Navbar() {
         <nav>
             <ul>
                 <li><Link to="/about">אודות</Link></li>
-                {/* <li><Link to="/login">היכנס</Link></li>
-                <li><Link to="/signup">להרשמה</Link></li> */}
+                <li><Link to="/fav-card">כרטיסים מועדפים</Link></li>
             </ul>
         </nav>
     )

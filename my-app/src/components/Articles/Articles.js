@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Card from "./Card";
 
 
-export default function Main() {
+export default function Articles() {
     const [articles, setArticles] = useState([]);
 
     useEffect(() => {
