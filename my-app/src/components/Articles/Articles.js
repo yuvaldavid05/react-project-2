@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
+import { HiOutlineCursorArrowRays } from "react-icons/hi2";
+
 
 
 export default function Articles() {
@@ -14,14 +16,25 @@ export default function Articles() {
     }, []);
 
     return (
-        <div className="Articles">
-            {
+        <>
+            <div className='opening'>
+                <div className='left'>
+                    <h1>אתר העסקים הגדול</h1>
+                </div>
+                <div className='right'>
+                    <HiOutlineCursorArrowRays />
+                </div>
+            </div>
 
-                articles.map(art =>
-                    <Card key={art.id} article={art} />
-                )
-            }
+            <div className="Articles">
+                {
 
-        </div>
+                    articles.map(art =>
+                        <Card key={art.id} article={art} />
+                    )
+                }
+
+            </div>
+        </>
     );
 }

@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import Main from './components/Articles/Articles';
+import Articles from './components/Articles/Articles';
 import ArticlePage from './components/Articles/ArticlePage';
 import About from './components/Navbar/About/About';
 import ErrorPage from './components/Navbar/ErrorPage/ErrorPage';
@@ -10,7 +10,7 @@ import Login from './components/Navbar/Login/Login';
 function Router() {
     return (
         <Routes>
-            <Route path="/" element={<Main />} />
+            <Route path="/" element={<Articles />} />
             <Route path="/article/:id" element={<ArticlePage />} />
             <Route path="/about" element={<About />} />
             <Route path="/login" element={<Login />} />
