@@ -1,3 +1,4 @@
+import { TOKEN } from '../../config';
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import ErrorPage from '../Navbar/ErrorPage/ErrorPage';
@@ -9,11 +10,11 @@ export default function ArticlePage() {
     const { id } = useParams();
 
     useEffect(() => {
-        fetch(`https://api.shipap.co.il/articles/${id}`)
+        fetch(`https://api.shipap.co.il/articles/${id}?token=${TOKEN}`)
             .then(res => res.json())
             .then(data => setArticle(data))
             .catch(() => setError(true));
-    }, [])
+    }, []);
 
     return (
         <div className="ArticlePage">

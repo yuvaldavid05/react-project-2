@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { HiOutlineMagnifyingGlassCircle } from "react-icons/hi2";
 
 
 function Navbar() {
@@ -10,7 +11,11 @@ function Navbar() {
                 <li className='icon' onClick={() => navigate("/")}>אייקון</li>
                 <li><Link to="/about">אודות</Link></li>
 
-                <input placeholder='חיפוש' />
+                <div className="inputDiv">
+                    <input placeholder='חיפוש' />
+                    <HiOutlineMagnifyingGlassCircle />
+
+                </div>
 
                 <li><Link to="/login">היכנס</Link></li>
                 <li><Link to="/signup">להרשמה</Link></li>

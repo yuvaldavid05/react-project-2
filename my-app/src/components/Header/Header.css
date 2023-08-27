@@ -25,7 +25,7 @@ a{
     border-radius: 30px;
 }
 
-a:hover {
+nav a:hover {
     background-color: rgb(35, 130, 35);
 }
 
@@ -35,6 +35,17 @@ input{
     height:32px;
     border:1px solid gray;
     border-radius: 3px;
+}
+
+.inputDiv svg{
+    height:35px;
+    margin-left:12px;
+}
+
+.inputDiv svg:hover{
+    background-color: rgb(35, 130, 35);
+    border-radius: 50%;
+
 }
 
 .profile{
