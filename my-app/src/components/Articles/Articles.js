@@ -31,6 +31,7 @@ export default function Articles() {
 
                     articles.map(art =>
                         <Card key={art.id} article={art} />
+
                     )
                 }
 
