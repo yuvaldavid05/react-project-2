@@ -26,12 +26,20 @@ export default function Articles() {
                 </div>
             </div>
 
+            <div className="order">
+
+                <select>
+                    <option></option>
+                    <option>א-ב</option>
+                    <option>קטגוריות</option>
+                </select>
+                סדר לפי
+            </div>
             <div className="Articles">
                 {
 
                     articles.map(art =>
                         <Card key={art.id} article={art} />
-
                     )
                 }
 

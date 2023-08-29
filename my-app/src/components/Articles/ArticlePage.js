@@ -1,6 +1,6 @@
 import { TOKEN } from '../../config';
 import { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import ErrorPage from '../Navbar/ErrorPage/ErrorPage';
 
 
@@ -8,6 +8,7 @@ export default function ArticlePage() {
     const [article, setArticle] = useState();
     const [error, setError] = useState(false);
     const { id } = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch(`https://api.shipap.co.il/articles/${id}?token=${TOKEN}`)
@@ -21,6 +22,7 @@ export default function ArticlePage() {
             {
                 article ?
                     <div className="article">
+                        <button onClick={() => navigate('/')}>חזרה לדף הראשי</button>
                         <h3>{article.headline}</h3>
                         <p>{article.description}</p>
                         <img src={article.imgUrl} width="100%" />

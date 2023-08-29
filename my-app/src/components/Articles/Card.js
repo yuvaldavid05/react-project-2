@@ -1,8 +1,6 @@
-import { Link, useNavigate } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 
 export default function Card({ article }) {
-    // const navigate = useNavigate();
 
     return (
         <Link to={`/article/${article.id}`}>
