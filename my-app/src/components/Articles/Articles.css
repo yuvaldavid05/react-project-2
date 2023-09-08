@@ -36,7 +36,7 @@
     border: solid 1px rgb(161, 154, 154);
     border-radius: 12px;
     transition: 0.7s;
-    box-shadow: 0 2px 7px 0;
+    box-shadow: 0 0 4px #949494;
 }
 
 .Articles .card:hover{
@@ -58,8 +58,21 @@
     padding: 12px;
 }
 
-
-
 .Articles  footer{
     font-size: 12px;
+}
+
+.article{
+    display: flex;
+}
+
+.article img{
+    flex:3;
+    height:400px;
+    background-position: center;
+    background-size: contain;
+}
+
+.article .info{
+    flex:2;
 }

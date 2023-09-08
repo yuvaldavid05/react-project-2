@@ -4,7 +4,7 @@ export default function Card({ article }) {
 
     return (
         <Link to={`/article/${article.id}`}>
-            <div className='card'>
+            <div className='col-sm-4 card'>
                 <div className='card-img' style={{ backgroundImage: `url('${article.imgUrl}')` }}></div>
 
                 <header>{article.headline}</header>

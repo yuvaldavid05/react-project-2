@@ -22,11 +22,14 @@ export default function ArticlePage() {
             {
                 article ?
                     <div className="article">
-                        <button onClick={() => navigate('/')}>חזרה לדף הראשי</button>
-                        <h3>{article.headline}</h3>
-                        <p>{article.description}</p>
                         <img src={article.imgUrl} width="100%" />
-                        <p>{article.content}</p>
+
+                        <div className="info">
+                            <button onClick={() => navigate('/')}>חזרה לדף הראשי</button>
+                            <h3>{article.headline}</h3>
+                            <p>{article.description}</p>
+                            <p>{article.content}</p>
+                        </div>
                     </div>
                     :
                     (error ? <ErrorPage /> : <p className="article">טוען..</p>)

@@ -17,7 +17,7 @@ export default function Articles() {
 
     return (
         <>
-            <div className='opening'>
+            <div className="container-fluid p-5 bg-primary text-white text-center ">
                 <div className='left'>
                     <h1>אתר העסקים הגדול</h1>
                 </div>
@@ -35,13 +35,15 @@ export default function Articles() {
                 </select>
                 סדר לפי
             </div>
-            <div className="Articles">
-                {
+            <div className="container mt-5 Articles">
+                <div className="row">
+                    {
 
-                    articles.map(art =>
-                        <Card key={art.id} article={art} />
-                    )
-                }
+                        articles.map(art =>
+                            <Card key={art.id} article={art} />
+                        )
+                    }
+                </div>
 
             </div>
         </>
