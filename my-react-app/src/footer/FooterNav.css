@@ -1,0 +1,13 @@
+.btn-group {
+
+}
+
+.btn.btn-primary{
+    background-color: red;
+    border:none;
+}
+
+.btn.btn-primary:active{
+    background-color: beige;
+    border:none;
+}

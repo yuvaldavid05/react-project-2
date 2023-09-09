@@ -1,14 +1,33 @@
 .App {
+  min-height: 100vh;
   /* direction: rtl; */
   background-color: #282c34;
+  text-align: center;
 }
-
 
 .App-header {
-  min-height: 100vh;
+  min-height: 150px;
   color: white;
   font-size: 17px;
+  text-align: center;
 }
 
+.App-header h1{
+  margin:30px;
+  font-size: 25px;
+}
+
+main{
+  padding: 25px;
+}
+
+footer{
+  min-width: 100%;
+  background-color: red;
+  position: absolute;
+  bottom: 0;
+  margin:0;
+  padding:0;
+}
 
 
