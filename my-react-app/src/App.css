@@ -17,17 +17,17 @@
   z-index: 2;
 }
 
-
+/* 
 main{
   padding: 0 25px;
-}
-
+} */
+/* 
 main h1{
   margin:30px;
   padding-bottom: 12px;
   color: azure;
   font-size: 25px;
-}
+} */
 
 footer.fot{
   min-width: 100%;
@@ -36,6 +36,7 @@ footer.fot{
   bottom: 0;
   margin: 0;
   padding:0;
+  z-index: 3;
   /* box-shadow: 0 0 3px 0 whitesmoke; */
 }
 

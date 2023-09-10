@@ -1,3 +1,15 @@
-.d-flex{
+.Icon{
+    font-size: 27px;
+}
+
+.NavFrame a{
+text-decoration: none;
+color: initial;
+}
+
+#navbarScrollingDropdown{
+    margin: 0 20px;
+}
+.formFrame{
     margin-right: 30px;
 }

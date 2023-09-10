@@ -1,4 +1,4 @@
-.btn-group {
+.groupFrame {
     /* display: flex; */
     /* justify-content: center;
     align-items:center; */
@@ -7,9 +7,13 @@
     
 }
 
+.groupFrame a{
+  text-decoration: none;
+  color: #282c34;;
+}
+
 .btn.btn-primary{
-  min-width: 25px;
-   color: #282c34;
+    min-width: 25px;
     font-size: 30px;
     background:none;
     border:none;

@@ -2,23 +2,31 @@ import './FooterNav.css';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import { BiInfoCircle, BiHeartCircle, BiSolidUserPin } from "react-icons/bi";
+import { Link } from "react-router-dom";
+
 
 function FooterNav() {
     return (
         <>
 
-            <ButtonGroup size="lg" className="mb-2">
+            <ButtonGroup size="lg" className="mb-2 groupFrame">
                 <Button>
-                    <BiInfoCircle />
-                    <span>אודות</span>
+                    <Link to="/about">
+                        <BiInfoCircle />
+                        <span>אודות</span>
+                    </Link>
                 </Button>
                 <Button>
-                    <BiHeartCircle />
-                    <span>מועדפים</span>
+                    <Link to="/favorite-cards">
+                        <BiHeartCircle />
+                        <span>מועדפים</span>
+                    </Link>
                 </Button>
                 <Button>
-                    <BiSolidUserPin />
-                    <span>כרטיסים שלי</span>
+                    <Link to="/my-cards">
+                        <BiSolidUserPin />
+                        <span>כרטיסים שלי</span>
+                    </Link>
                 </Button>
             </ButtonGroup>
 

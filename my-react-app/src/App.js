@@ -1,8 +1,8 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavbarTop from './navbar/NavbarTop';
-import Cards from './card/Cards';
-import FooterNav from './footer/FooterNav';
+import NavbarTop from './Navbar/NavbarTop';
+import FooterNav from './Footer/FooterNav';
+import Router from './Router';
 
 
 
@@ -11,12 +11,8 @@ function App() {
         <div className="App">
             <header className="App-header">
                 <NavbarTop />
+                <Router />
             </header>
-
-            <main>
-                <h1>מרכז העסקים שלי</h1>
-                <Cards />
-            </main>
 
             <footer className='fot'>
                 <FooterNav />
