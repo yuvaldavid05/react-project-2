@@ -4,6 +4,7 @@
   background-color: #282c34;
   text-align: center;
   position: relative;
+  padding-bottom: 50px;
 }
 
 .App-header {
@@ -23,6 +24,7 @@ main{
 
 main h1{
   margin:30px;
+  padding-bottom: 12px;
   color: azure;
   font-size: 25px;
 }
@@ -34,6 +36,7 @@ footer.fot{
   bottom: 0;
   margin: 0;
   padding:0;
+  /* box-shadow: 0 0 3px 0 whitesmoke; */
 }
 
 

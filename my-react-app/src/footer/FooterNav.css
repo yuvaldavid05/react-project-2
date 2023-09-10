@@ -26,6 +26,7 @@
 }
 
 .btn.btn-primary:active{
+  color:rgb(117, 99, 76);
     border:none;
     background: none;
 }

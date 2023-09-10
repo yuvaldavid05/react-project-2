@@ -1,0 +1,10 @@
+.cardFrame{
+    width: 18rem;
+    margin: 10px 20px ;
+    box-shadow: 0 0 10px 0 black;
+}
+
+.cardLink svg{
+    font-size: 25px;
+    padding: 0;
+}
