@@ -1,13 +1,40 @@
 .btn-group {
-
+    /* display: flex; */
+    /* justify-content: center;
+    align-items:center; */
+    gap:75px;
+    
+    
 }
 
 .btn.btn-primary{
-    background-color: red;
+  min-width: 25px;
+   color: #282c34;
+    font-size: 30px;
+    background:none;
     border:none;
+    margin:0 25px;
+    display: block;
+    padding:0;
+    text-align: center;
+}
+
+.btn.btn-primary span{
+  font-size: 10px;
+  display: block;
+
 }
 
 .btn.btn-primary:active{
-    background-color: beige;
     border:none;
+    background: none;
+}
+
+@media (max-width: 900px) {
+  .btn.btn-primary{
+    margin:0;
+  }
+  .btn.btn-primary span{
+    display: none;
+  }
 }

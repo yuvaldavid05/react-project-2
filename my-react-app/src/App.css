@@ -3,30 +3,36 @@
   /* direction: rtl; */
   background-color: #282c34;
   text-align: center;
+  position: relative;
 }
 
 .App-header {
-  min-height: 150px;
+  min-height: 75px;
   color: white;
   font-size: 17px;
   text-align: center;
+  position: sticky;
+  top:0;
+  z-index: 2;
 }
 
-.App-header h1{
+
+main{
+  padding: 0 25px;
+}
+
+main h1{
   margin:30px;
+  color: azure;
   font-size: 25px;
 }
 
-main{
-  padding: 25px;
-}
-
-footer{
+footer.fot{
   min-width: 100%;
-  background-color: red;
-  position: absolute;
+  background-color: rgb(202, 202, 176);
+  position: fixed;
   bottom: 0;
-  margin:0;
+  margin: 0;
   padding:0;
 }
 

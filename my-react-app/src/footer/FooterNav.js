@@ -1,17 +1,29 @@
 import './FooterNav.css';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import { BiInfoCircle, BiHeartCircle, BiSolidUserPin } from "react-icons/bi";
 
-function Footer() {
+function FooterNav() {
     return (
         <>
-            <ButtonGroup size="lg" className="mb-2" style={{ position: 'sticky', bottom: '0' }}>
-                <Button>Left</Button>
-                <Button>Middle</Button>
-                <Button>Right</Button>
+
+            <ButtonGroup size="lg" className="mb-2">
+                <Button>
+                    <BiInfoCircle />
+                    <span>אודות</span>
+                </Button>
+                <Button>
+                    <BiHeartCircle />
+                    <span>מועדפים</span>
+                </Button>
+                <Button>
+                    <BiSolidUserPin />
+                    <span>כרטיסים שלי</span>
+                </Button>
             </ButtonGroup>
+
         </>
     );
 }
 
-export default Footer;
+export default FooterNav;

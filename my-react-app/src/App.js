@@ -7,23 +7,22 @@ import FooterNav from './footer/FooterNav';
 
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <NavbarTop />
-        <h1>מרכז העסקים שלי</h1>
-      </header>
-      <main>
+    return (
+        <div className="App">
+            <header className="App-header">
+                <NavbarTop />
+            </header>
 
-        <Cards />
+            <main>
+                <h1>מרכז העסקים שלי</h1>
+                <Cards />
+            </main>
 
-      </main>
-
-      <footer>
-        <FooterNav />
-      </footer>
-    </div>
-  );
+            <footer className='fot'>
+                <FooterNav />
+            </footer>
+        </div>
+    );
 }
 
 export default App;
