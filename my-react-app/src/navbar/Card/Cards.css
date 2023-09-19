@@ -1,0 +1,52 @@
+h1{
+    margin:30px;
+    padding-bottom: 12px;
+    color: azure;
+    font-size: 25px;
+}
+
+.frameGrid{
+  padding: 0 25px;
+  margin: auto;
+  /* justify-content: space-evenly; */
+}
+
+.cardFrame{
+    /* width: 18rem; */
+    width:250px;
+    min-height: 200px;
+    margin: 10px 20px ;
+    box-shadow: 0 0 10px 0 black;
+    padding-bottom: 3px;
+}
+/* 
+.cardFrame:hover{
+
+    cursor: pointer;
+} */
+
+.cardLink svg{
+    font-size: 25px;
+    padding: 0;
+    color:rgb(60, 170, 106);
+
+}
+
+/* .cardTop{
+    background: none;
+} */
+
+.addCardIcon{
+    width:55px;
+    height:55px;
+    font-size: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: auto;
+    background-color:rgb(60, 170, 106) ;
+    position: fixed;
+    top:150px;
+    left:15px; 
+}
+
+

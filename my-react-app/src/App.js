@@ -3,21 +3,26 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarTop from './Navbar/NavbarTop';
 import FooterNav from './Footer/FooterNav';
 import Router from './Router';
+import React, { useState } from 'react';
 
-
+const GeneralContext = React.createContext();
 
 function App() {
-    return (
-        <div className="App">
-            <header className="App-header">
-                <NavbarTop />
-                <Router />
-            </header>
+    const [user, setUser] = useState();
 
-            <footer className='fot'>
-                <FooterNav />
-            </footer>
-        </div>
+    return (
+        <GeneralContext.Provider value={{ user, setUser }}>
+            <div className="App">
+                <header className="App-header">
+                    <NavbarTop />
+                    <Router />
+                </header>
+
+                <footer className='fot'>
+                    <FooterNav />
+                </footer>
+            </div>
+        </GeneralContext.Provider>
     );
 }
 

@@ -1,15 +1,21 @@
 .Icon{
     font-size: 27px;
+    margin-left: 20px;
 }
 
 .NavFrame a{
-text-decoration: none;
-color: initial;
+    text-decoration: none;
+    color: initial;
 }
 
 #navbarScrollingDropdown{
     margin: 0 20px;
 }
-.formFrame{
-    margin-right: 30px;
+
+.searchInput{
+    margin-left: 30px;
+}
+
+.searchButton{
+    margin-right: 10px;
 }

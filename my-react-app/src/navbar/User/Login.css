@@ -1,0 +1,43 @@
+.inputFrame{
+    direction: rtl;
+    width:450px;
+    min-height:400px;
+    margin:60px auto;
+    background-color:rgb(187, 185, 185);
+    border-radius: 8px;
+    border: solid 2px rgba(0, 0, 0, 0.751);
+    padding: 25px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.inputFrame h1{
+    color: #282c34;
+    margin-bottom: 15px;
+}
+
+.formField{
+    margin: auto;
+    text-align: right;
+    /* width: 100%; */
+    background-color: rgb(235, 224, 209);
+   color:cornflowerblue;
+   border-radius: 4px;
+}
+
+
+.buttonForm{
+    margin:20px;
+    width: 100px;
+}
+
+.inputFrame span{
+    color:#282c34;
+    margin:25px;
+}
+
+@media (max-width: 900px) {
+    .inputFrame{
+        width:80%;
+        margin:25px auto;
+    }
+}

@@ -18,12 +18,16 @@ export default function NavbarTop() {
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
-                        className="me-auto my-2 my-lg-0"
+                        className="ms-auto my-2 my-lg-0"
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
                         <Nav.Link>
                             <Link to="/about">אודות</Link>
+                        </Nav.Link>
+
+                        <Nav.Link>
+                            <Link to="/login">התחבר</Link>
                         </Nav.Link>
 
                         <Nav.Link>
@@ -39,6 +43,16 @@ export default function NavbarTop() {
                         </Nav.Link>
                     </Nav>
 
+                    <Form className="d-flex searchInput">
+                        <Form.Control
+                            type="search"
+                            placeholder="חיפוש"
+                            className="me-2"
+                            aria-label="Search"
+                        />
+                        <Button variant="outline-success" className='searchButton'>חיפוש</Button>
+                    </Form>
+
                     <Nav>
                         <NavDropdown title="שם מלא" id="navbarScrollingDropdown">
                             <NavDropdown.Item href="#action3">עריכת פרטים</NavDropdown.Item>
@@ -51,15 +65,7 @@ export default function NavbarTop() {
                             </NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
-                    <Form className="d-flex formFrame">
-                        <Form.Control
-                            type="search"
-                            placeholder="חיפוש"
-                            className="me-2"
-                            aria-label="Search"
-                        />
-                        <Button variant="outline-success">חיפוש</Button>
-                    </Form>
+
 
                 </Navbar.Collapse>
             </Container>
