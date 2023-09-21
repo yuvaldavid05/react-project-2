@@ -57,14 +57,14 @@ function Cards() {
                             bulk of the card's content.
                         </Card.Text>
                         <Stack direction="horizontal" gap={2} className='IconFrame' >
-                            <Card.Link href="#" className="p-2 cardLink">
-                                <MdDelete />
+                            <Card.Link href="#" className="p-2 ms-auto cardLink">
+                                <AiOutlineHeart />
                             </Card.Link>
                             <Card.Link href="#" className="p-2 cardLink">
                                 <BiSolidEditAlt />
                             </Card.Link >
-                            <Card.Link href="#" className="p-2 cardLink ms-auto">
-                                <AiOutlineHeart />
+                            <Card.Link href="#" className="p-2 cardLink">
+                                <MdDelete />
                             </Card.Link>
                         </Stack>
                     </Card.Body>

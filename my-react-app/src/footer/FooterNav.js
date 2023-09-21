@@ -11,9 +11,9 @@ function FooterNav() {
 
             <ButtonGroup size="lg" className="mb-2 groupFrame">
                 <Button>
-                    <Link to="/about">
-                        <BiInfoCircle />
-                        <span>אודות</span>
+                    <Link to="/my-cards">
+                        <BiSolidUserPin />
+                        <span>כרטיסים שלי</span>
                     </Link>
                 </Button>
                 <Button>
@@ -23,9 +23,9 @@ function FooterNav() {
                     </Link>
                 </Button>
                 <Button>
-                    <Link to="/my-cards">
-                        <BiSolidUserPin />
-                        <span>כרטיסים שלי</span>
+                    <Link to="/about">
+                        <BiInfoCircle />
+                        <span>אודות</span>
                     </Link>
                 </Button>
             </ButtonGroup>
