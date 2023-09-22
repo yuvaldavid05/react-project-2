@@ -1,19 +1,37 @@
 import './Login.css';
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Joi from 'joi';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { Link } from "react-router-dom";
-import { useState } from 'react';
+import { Link, useNavigate } from "react-router-dom";
+import { useContext, useState, } from 'react';
+import { GeneralContext } from '../../App';
+import { JOI_HEBREW } from '../../joi-hebrew';
 
+
+
+// email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
+// password: Joi.string().min(6).max(25).required().regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+//     'password')
 
 function Login() {
+    const { user, setUser, isLogged, setIsLogged, setLoader } = useContext(GeneralContext);
     const [formData, setFormData] = useState({
-        userName: '',
+        email: '',
         password: '',
     });
+    const [loginError, setLoginError] = useState('');
+    const [errors, setErrors] = useState({});
+    const [isValid, setIsValid] = useState(false);
+    const loginSchema = Joi.object({
+        email: Joi.string().required(),
+        password: Joi.string().min(6).max(25).required(),
+    });
+
+    const navigate = useNavigate();
 
     const login = ev => {
         ev.preventDefault();
+        setLoader(true);
 
         fetch(`https://api.shipap.co.il/clients/login?token=d2960ef2-3431-11ee-b3e9-14dda9d4a5f0`, {
             credentials: 'include',
@@ -31,11 +49,49 @@ function Login() {
                 }
             })
             .then(data => {
+                if (data.status === 'success') {
+                    setUser(data.user);
+                    setIsLogged(true);
 
+                    navigate('/');
+                } else {
+                    setLoginError(data.message);
+                }
+                console.log(data);
             })
             .catch(err => {
+                alert(err.message)
                 console.log(err.message);
-            });
+            })
+            .finally(() => setLoader(false));
+    }
+
+    const handleError = ev => {
+        const { id, value } = ev.target;
+
+        const obj = {
+            ...formData,
+            [id]: value,
+        }
+
+        setFormData(obj);
+
+        const schema = loginSchema.validate(obj, { abortEarly: false, messages: { he: JOI_HEBREW }, errors: { language: 'he' } });
+        const errors = {};
+
+        if (schema.error) {
+            const error = schema.error.details.find(e => e.context.key === id);
+
+            if (error) {
+                errors[id] = error.message;
+            }
+
+            setIsValid(false);
+        } else {
+            setIsValid(true);
+        }
+
+        setErrors(errors);
     }
 
     return (
@@ -43,26 +99,44 @@ function Login() {
             <h1>התחברות</h1>
             <form onSubmit={login}>
 
-                <FloatingLabel
-                    controlId="floatingInput"
-                    label="אימייל"
-                    className="mb-3 formField"
-                >
-                    <Form.Control type="email" placeholder="name@example.com" />
-                </FloatingLabel>
+                <Form.Group className="mb-3 formFieldLabel">
+                    <Form.Control type="email" placeholder="הכנס אימייל" id='email' value={formData.email} className={errors.email ? 'fieldError' : ''} onChange={handleError} />
+                </Form.Group>
+                {/* 
+                {errors.email ? <Form.Text className="text-muted DivfieldError">
+                    {errors.email}
+                </Form.Text> : ''} */}
 
-                <FloatingLabel controlId="floatingPassword" label="סיסמא" className='formField '>
-                    <Form.Control type="password" placeholder="סיסמא" className='hey' />
-                </FloatingLabel>
+                <Form.Text className="text-muted DivfieldError">
+                    {errors.email ? errors.email : ''}
+                </Form.Text>
 
-                <Button variant="outline-primary buttonForm">היכנס</Button>
-                <br></br>
-                <span>אין לך עדיין חשבון?
-                    <br></br>
-                    רוצה להצטרף אלינו ולהנות משלל מסעדות מומלצות ברחבי הארץ?</span>
-                <br></br>
-                <span><Link to="/signup">לחץ כאן להרשמה</Link></span>
+
+
+                <Form.Group className="mb-3">
+                    <Form.Control type="password" placeholder="הכנס סיסמא" id='password' value={formData.password} className={errors.password ? 'fieldError' : ''} onChange={handleError} />
+                </Form.Group>
+
+                {/* {errors.password ? <Form.Text className="text-muted DivfieldError">
+                    {errors.password}
+                </Form.Text> : ''} */}
+
+                <Form.Text className="text-muted DivfieldError">
+                    {errors.password ? errors.password : ''}
+                </Form.Text>
+
+                <Button variant="primary" type="submit" className='buttonForm'>
+                    התחבר
+                </Button>
+
+                {loginError ? <div className='failedLoginFieldError'>{loginError}</div> : ''}
             </form>
+            <br></br>
+            <span>אין לך עדיין חשבון?
+                <br></br>
+                רוצה להצטרף אלינו ולהנות משלל מסעדות מומלצות ברחבי הארץ?</span>
+            <br></br>
+            <span><Link to="/signup">לחץ כאן להרשמה</Link></span>
         </div>
     );
 

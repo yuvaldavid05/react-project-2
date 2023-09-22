@@ -2,7 +2,7 @@
     direction: rtl;
     width:450px;
     min-height:400px;
-    margin:60px auto;
+    margin:45px auto;
     background-color:rgb(187, 185, 185);
     border-radius: 8px;
     border: solid 2px rgba(0, 0, 0, 0.751);
@@ -12,26 +12,40 @@
 
 .inputFrame h1{
     color: #282c34;
-    margin-bottom: 15px;
+    font-size: 35px;
+    margin-bottom: 25px;
 }
 
-.formField{
+.formFieldLabel{
     margin: auto;
     text-align: right;
-    /* width: 100%; */
-    background-color: rgb(235, 224, 209);
+    /* background-color: rgb(235, 224, 209); */
    color:cornflowerblue;
    border-radius: 4px;
 }
 
+.DivfieldError{
+    display: block;
+    margin:12px;
+    height:12px;
+    /* visibility:hidden; */
+}
 
-.buttonForm{
-    margin:20px;
-    width: 100px;
+form .btn.btn-primary{
+    font-size: 20px;
+    width:40%;
+    background-color: cadetblue;
+    margin: 25px auto 0 auto;
+    padding: 8px 10px;
+}
+
+.failedLoginFieldError{
+    background-color: red;
 }
 
 .inputFrame span{
     color:#282c34;
+    font-size: initial;
     margin:25px;
 }
 
