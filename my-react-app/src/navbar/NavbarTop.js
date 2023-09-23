@@ -46,7 +46,7 @@ export default function NavbarTop() {
 
                     <Nav>
                         <NavDropdown title="שם מלא" id="navbarScrollingDropdown">
-                            <NavDropdown.Item href="#action3">עריכת פרטים</NavDropdown.Item>
+                            <NavDropdown.Item href="#action3">אזור אישי</NavDropdown.Item>
                             <NavDropdown.Item href="#action4">
                                 Another action
                             </NavDropdown.Item>

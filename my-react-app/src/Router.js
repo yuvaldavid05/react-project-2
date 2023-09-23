@@ -2,11 +2,12 @@ import { Route, Routes } from 'react-router-dom';
 import Cards from './Navbar/Card/Cards';
 import About from './Navbar/About/About';
 import FavoriteCards from './Navbar/FavoritesCard/FavoriteCards';
-import ClientsAdmin from './Navbar/ClientsAdmin/ClientsAdmin';
+import AdminManagement from './Navbar/AdminManagement/AdminManagement';
 import MyCards from './Navbar/MyCards/MyCards';
 import CardPage from './Navbar/Card/CardPage';
 import Login from './Navbar/User/Login';
 import Signup from './Navbar/User/Signup';
+import Account from './Navbar/User/Account';
 
 
 function Router() {
@@ -15,11 +16,12 @@ function Router() {
             <Route path="/" element={<Cards />} />
             <Route path="/about" element={<About />} />
             <Route path="/my-cards" element={<MyCards />} />
-            <Route path="/favorite-cards" element={<FavoriteCards />} />
-            <Route path="/clientsAdmin" element={<ClientsAdmin />} />
+            <Route path="/favorite-csards" element={<FavoriteCards />} />
             <Route path="/cards/:id" element={<CardPage />} />
+            <Route path="/AdminManagement" element={<AdminManagement />} />
+            <Route path="/account" element={<Account />} />
 
-            <Route path="/login" element={<Login />} />
+            {/* <Route path="/login" element={<Login />} /> */}
             <Route path="/signup" element={<Signup />} />
         </Routes>
     );

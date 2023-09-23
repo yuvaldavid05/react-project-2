@@ -3,9 +3,11 @@ import Joi from 'joi';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Link, useNavigate } from "react-router-dom";
-import { useContext, useState, } from 'react';
+import { useContext, useState } from 'react';
 import { GeneralContext } from '../../App';
 import { JOI_HEBREW } from '../../joi-hebrew';
+import { RoleTypes } from '../NavbarTop2';
+
 
 
 
@@ -14,7 +16,7 @@ import { JOI_HEBREW } from '../../joi-hebrew';
 //     'password')
 
 function Login() {
-    const { user, setUser, isLogged, setIsLogged, setLoader } = useContext(GeneralContext);
+    const { user, setUser, isLogged, setIsLogged, setLoader, setRoleType } = useContext(GeneralContext);
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -49,15 +51,21 @@ function Login() {
                 }
             })
             .then(data => {
-                if (data.status === 'success') {
-                    setUser(data.user);
-                    setIsLogged(true);
+                setUser(data.user);
+                // setIsLogged(true);
 
-                    navigate('/');
-                } else {
-                    setLoginError(data.message);
+                setRoleType(RoleTypes.user);
+
+                if (data.business) {
+                    setRoleType(RoleTypes.business);
+                } else if (data.admin) {
+                    setRoleType(RoleTypes.admin);
                 }
+                alert("המשתמש התחבר בהצלחה");
+                navigate('/');
+
                 console.log(data);
+                console.log(setRoleType);
             })
             .catch(err => {
                 alert(err.message)
