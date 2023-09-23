@@ -3,10 +3,11 @@ import Login from './Navbar/User/Login';
 
 
 
+
 function Router() {
     return (
         <Routes>
-            <Route path="/login" element={<Login />} />
+            {/* <Route path="/login" element={<Login />} /> */}
 
         </Routes >
     );

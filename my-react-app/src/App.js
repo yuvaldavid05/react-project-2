@@ -28,11 +28,11 @@ function App() {
                     <NavbarTop2 />
                     <Router />
                 </header>
+
                 {loader && <Loader />}
                 <footer className='fot'>
                     <FooterNav />
                 </footer>
-
             </div>
 
 
