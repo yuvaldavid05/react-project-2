@@ -9,6 +9,7 @@ import React, { useEffect, useState } from 'react';
 import Loader from './compoents/Loader';
 import { RoleTypes } from './Navbar/NavbarTop2';
 import { useNavigate } from 'react-router-dom';
+import Signup2 from './Navbar/User/Signup2';
 
 
 export const GeneralContext = React.createContext();
@@ -60,7 +61,6 @@ function App() {
                     <NavbarTop2 />
                     <Router />
                 </header>
-
                 {loader && <Loader />}
                 <footer className='fot'>
                     <FooterNav />

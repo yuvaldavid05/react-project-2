@@ -47,6 +47,10 @@
     background-color: rgb(53, 51, 51);
 }
 
+.fieldError{
+    border: 2px red solid;
+}
+
 
 @media (max-width: 900px) {
     .frameSignup{
