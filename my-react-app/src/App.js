@@ -5,9 +5,10 @@ import NavbarTop2 from './Navbar/NavbarTop2';
 import FooterNav from './Footer/FooterNav';
 import Router from './Router';
 import RouterAuth from './RouterAuth';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Loader from './compoents/Loader';
 import { RoleTypes } from './Navbar/NavbarTop2';
+import { useNavigate } from 'react-router-dom';
 
 
 export const GeneralContext = React.createContext();
@@ -15,10 +16,41 @@ export const GeneralContext = React.createContext();
 function App() {
     const [user, setUser] = useState();
     const [isLogged, setIsLogged] = useState();
-    const [loader, setLoader] = useState(false);
+    const [loader, setLoader] = useState(true);
     const [roleType, setRoleType] = useState(RoleTypes.none);
+    const navigate = useNavigate();
 
 
+    useEffect(() => {
+        fetch(`https://api.shipap.co.il/clients/login`, {
+            credentials: 'include',
+        })
+            .then(res => {
+                if (res.ok) {
+                    return res.json();
+                } else {
+                    return res.text().then(x => {
+                        throw new Error(x);
+                    });
+                }
+            })
+            .then(data => {
+                setUser(data.user);
+                setRoleType(RoleTypes.user);
+
+                if (data.business) {
+                    setRoleType(RoleTypes.business);
+                } else if (data.admin) {
+                    setRoleType(RoleTypes.admin);
+                }
+            })
+            .catch(err => {
+                setRoleType(RoleTypes.none);
+                navigate('/');
+
+            })
+            .finally(() => setLoader(false));
+    }, [])
 
     return (
         <GeneralContext.Provider value={{ user, setUser, isLogged, setIsLogged, setLoader, roleType, setRoleType }}>

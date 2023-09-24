@@ -52,7 +52,6 @@ function Login() {
             })
             .then(data => {
                 setUser(data.user);
-                // setIsLogged(true);
 
                 setRoleType(RoleTypes.user);
 

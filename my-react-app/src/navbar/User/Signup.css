@@ -1,0 +1,60 @@
+.frameSignup{
+    width:60%;
+    margin: 20px auto;
+    background-color:rgba(204, 230, 243, 0.655);
+    border:1px solid rgba(0, 0, 0, 0.674) ;
+    border-radius: 5px;
+    font-size: 15px;
+    padding:15px;
+    color:black;  
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;  
+}
+
+.frameSignup h1{
+    margin:  0;
+    color: black;
+    font-size: 30px;
+}
+
+.col{
+    border: none;
+    margin:5px 0;
+}
+
+.RowCity{
+    margin:2px 0;
+}
+
+.divSpanBusiness{
+    display: inline-block;
+}
+
+.checkboxSignupForm{
+    width: 30% ;
+    border: 1px solid gray;
+    padding:10px;
+    margin: 5px;
+    display: inline-block;
+    border-radius: 10px;
+}
+
+.checkboxSignupForm div{
+    display: inline-block;
+    margin: 5px 10px;
+}
+
+.frameSignup .btn.btn-primary{
+    background-color: rgb(53, 51, 51);
+}
+
+
+@media (max-width: 900px) {
+    .frameSignup{
+        width:80%;
+        /* margin:25px auto; */
+    }
+
+    .divSpanBusiness{
+        display:block;
+    }
+}

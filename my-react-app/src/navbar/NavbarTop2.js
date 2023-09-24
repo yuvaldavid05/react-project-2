@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import './NavbarTop.css';
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useResolvedPath } from "react-router-dom";
 import { useContext } from 'react';
 import { GeneralContext } from '../App';
 
@@ -36,6 +36,25 @@ const settings = [
 
 export default function NavbarTop() {
     const { user, roleType, setUser, setRoleType, setLoader } = useContext(GeneralContext);
+    const navigate = useNavigate();
+    const path = useResolvedPath().pathname;
+    console.log(path);
+
+
+    const logout = () => {
+        setLoader(true);
+
+        fetch(`https://api.shipap.co.il/clients/logout`, {
+            credentials: 'include',
+        })
+            .then(() => {
+                setUser();
+                setRoleType(RoleTypes.none);
+                setLoader(false);
+
+                navigate('/');
+            });
+    }
 
     return (
         <Navbar expand="lg" className="bg-body-tertiary NavFrame">
@@ -52,31 +71,46 @@ export default function NavbarTop() {
                         navbarScroll
                     >
                         {pages.filter(p => !p.permissions || checkPermissions(p.permissions, roleType)).map((page) => (
-                            <Nav.Link>
+                            <Nav.Link className={page.route === path ? 'activeColor' : ''}>
                                 <Link to={page.route} key={page.route}>
                                     {page.title}
+
                                 </Link>
                             </Nav.Link>
                         ))}
                     </Nav>
 
-                    {user &&
-                        <Nav>
-                            {settings.filter(p => !p.permissions || checkPermissions(p.permissions, roleType)).map(((setting) => (
+
+
+                    <Nav>
+                        {settings.map(((setting) => (
+                            <Link to={setting.route} key={setting.route}>
                                 <NavDropdown title="שם מלא" id="navbarScrollingDropdown">
-                                    <Link to={setting.route} key={setting.route}>
-                                        <NavDropdown.Item href="#action3">
-                                            אזור אישי
-                                        </NavDropdown.Item>
-                                    </Link>
+                                    <NavDropdown.Item>
+                                        {setting.title}
+                                    </NavDropdown.Item>
                                     <NavDropdown.Divider />
-                                    <NavDropdown.Item href="#action5">
-                                        <Link>התנתק</Link>
+                                    <NavDropdown.Item onClick={logout}>
+                                        התנתק
                                     </NavDropdown.Item>
                                 </NavDropdown>
-                            )))}
-                        </Nav>
-                    }
+                            </Link>
+                        )))}
+                    </Nav>
+
+
+                    {/* {settings.map(((setting) => (
+                        <NavDropdown title="Dropdown" id="nav-dropdown">
+                            <Link to={setting.route} key={setting.route} >
+                                <NavDropdown.Item eventKey="4.1">{setting.title}</NavDropdown.Item>
+                            </Link>
+
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item eventKey="4.4" >Separated link</NavDropdown.Item>
+                        </NavDropdown>
+                    )))} */}
+
+
 
                     <Form className="d-flex searchInput">
                         <Form.Control
@@ -93,7 +127,7 @@ export default function NavbarTop() {
 
                 </Navbar.Collapse>
             </Container>
-        </Navbar>
+        </Navbar >
     );
 }
 

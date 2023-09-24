@@ -9,6 +9,7 @@
 }
 
 #navbarScrollingDropdown{
+    width: 200px;
     margin: 0 20px;
 }
 
@@ -18,4 +19,16 @@
 
 .searchButton{
     margin-right: 10px;
+}
+
+#nav-dropdown{
+    color: black;
+}
+
+#nav-dropdown:hover{
+    background-color: rgb(75, 128, 149);
+}
+
+.activeColor{
+    border-bottom: 1px solid rgba(128, 128, 128, 0.464);
 }
