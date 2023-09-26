@@ -22,7 +22,7 @@ export const checkPermissions = (permissions, userRoleType) => {
 
 
 function FooterNav() {
-    const { user, roleType } = useContext(GeneralContext);
+    const { roleType } = useContext(GeneralContext);
 
     return (
         <>
@@ -36,24 +36,7 @@ function FooterNav() {
                         </Link>
                     </Button>
                 )}
-                {/* <Button>
-                    <Link to="/favorite-cards">
-                        <BiSolidUserPin />
-                        <span>הכרטיסים שלי</span>
-                    </Link>
-                </Button>
-                <Button>
-                    <Link to="/favorite-cards">
-                        <BiHeartCircle />
-                        <span>מועדפים</span>
-                    </Link>
-                </Button>
-                <Button>
-                    <Link to="/about">
-                        <BiInfoCircle />
-                        <span>אודות</span>
-                    </Link>
-                </Button> */}
+
             </ButtonGroup>
 
         </>

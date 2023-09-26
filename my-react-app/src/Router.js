@@ -6,8 +6,9 @@ import AdminManagement from './Navbar/AdminManagement/AdminManagement';
 import MyCards from './Navbar/MyCards/MyCards';
 import CardPage from './Navbar/Card/CardPage';
 import Login from './Navbar/User/Login';
-import Signup from './Navbar/User/Signup';
+import Signup2 from './Navbar/User/Signup2';
 import Account from './Navbar/User/Account';
+
 
 
 function Router() {
@@ -21,8 +22,9 @@ function Router() {
             <Route path="/AdminManagement" element={<AdminManagement />} />
             <Route path="/account" element={<Account />} />
 
+
             <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
+            <Route path="/signup" element={<Signup2 />} />
         </Routes>
     );
 }

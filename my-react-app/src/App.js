@@ -9,7 +9,8 @@ import React, { useEffect, useState } from 'react';
 import Loader from './compoents/Loader';
 import { RoleTypes } from './Navbar/NavbarTop2';
 import { useNavigate } from 'react-router-dom';
-import Signup2 from './Navbar/User/Signup2';
+import ModalFullscreen from './Navbar/Card/addCard2';
+import AddCard from './Navbar/Card/AddCard';
 
 
 export const GeneralContext = React.createContext();
@@ -19,6 +20,7 @@ function App() {
     const [isLogged, setIsLogged] = useState();
     const [loader, setLoader] = useState(true);
     const [roleType, setRoleType] = useState(RoleTypes.none);
+    const [cards, setCards] = useState([]);
     const navigate = useNavigate();
 
 
@@ -54,7 +56,10 @@ function App() {
     }, [])
 
     return (
-        <GeneralContext.Provider value={{ user, setUser, isLogged, setIsLogged, setLoader, roleType, setRoleType }}>
+        <GeneralContext.Provider value={{
+            user, setUser, isLogged, setIsLogged, setLoader, roleType, setRoleType, cards,
+            setCards
+        }}>
             <div className="App">
                 <header className="App-header">
                     {/* <NavbarTop /> */}

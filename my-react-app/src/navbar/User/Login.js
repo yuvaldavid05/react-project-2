@@ -52,7 +52,6 @@ function Login() {
             })
             .then(data => {
                 setUser(data.user);
-
                 setRoleType(RoleTypes.user);
 
                 if (data.business) {
@@ -109,10 +108,6 @@ function Login() {
                 <Form.Group className="mb-3 formFieldLabel">
                     <Form.Control type="email" placeholder="הכנס אימייל" id='email' value={formData.email} className={errors.email ? 'fieldError' : ''} onChange={handleError} />
                 </Form.Group>
-                {/* 
-                {errors.email ? <Form.Text className="text-muted DivfieldError">
-                    {errors.email}
-                </Form.Text> : ''} */}
 
                 <Form.Text className="text-muted DivfieldError">
                     {errors.email ? errors.email : ''}
@@ -123,10 +118,6 @@ function Login() {
                 <Form.Group className="mb-3">
                     <Form.Control type="password" placeholder="הכנס סיסמא" id='password' value={formData.password} className={errors.password ? 'fieldError' : ''} onChange={handleError} />
                 </Form.Group>
-
-                {/* {errors.password ? <Form.Text className="text-muted DivfieldError">
-                    {errors.password}
-                </Form.Text> : ''} */}
 
                 <Form.Text className="text-muted DivfieldError">
                     {errors.password ? errors.password : ''}

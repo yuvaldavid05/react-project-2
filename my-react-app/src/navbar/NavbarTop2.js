@@ -81,7 +81,6 @@ export default function NavbarTop() {
                     </Nav>
 
 
-
                     <Nav>
                         {settings.map(((setting) => (
                             <Link to={setting.route} key={setting.route}>
@@ -99,6 +98,8 @@ export default function NavbarTop() {
                     </Nav>
 
 
+
+
                     {/* {settings.map(((setting) => (
                         <NavDropdown title="Dropdown" id="nav-dropdown">
                             <Link to={setting.route} key={setting.route} >
@@ -109,6 +110,8 @@ export default function NavbarTop() {
                             <NavDropdown.Item eventKey="4.4" >Separated link</NavDropdown.Item>
                         </NavDropdown>
                     )))} */}
+
+
 
 
 

@@ -1,0 +1,30 @@
+.modal-header{
+    direction: center;
+    background-color: rgb(228, 234, 229);
+}
+
+.modal-title{
+    text-align: center;
+}
+
+.modal-body {
+    background-color: rgb(156, 223, 171);
+    font-size: 15px;
+    padding:15px;
+    color:black;   
+}
+
+
+.form-control{
+    
+}
+.col-sm-2,
+.col-sm-4,
+.col-sm-6,
+.col-sm-12{
+    border: none;
+    margin:10px 0;
+}
+
+.fieldErrorSignup{
+}

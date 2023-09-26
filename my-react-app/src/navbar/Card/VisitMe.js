@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-function VisitMe() {
+function VisitMe({ nav }) {
     const navigate = useNavigate();
 
     const renderTooltip = (props) => (
@@ -22,7 +22,7 @@ function VisitMe() {
             delay={{ show: 250, hide: 400 }}
             overlay={renderTooltip}
         >
-            <Button variant="success" onClick={() => navigate('/cards/:id')}>
+            <Button variant="success" onClick={() => navigate(nav)}>
 
                 <LuMousePointerClick />
                 ...מי אנחנו

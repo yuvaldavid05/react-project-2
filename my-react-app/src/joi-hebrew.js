@@ -21,7 +21,7 @@ export const JOI_HEBREW = {
     'string.min': 'האורך חייב להיות לפחות {{#limit}} תווים',
     'string.normalize': 'חייב להיות מנורמל ב-unicode בצורת {{#form}}',
     'string.token': 'חייב להכיל רק תווים אלפא-נומריים ותווים קו תחתון',
-    'string.pattern.base': 'עם הערך {:[.]} לא מצליח להתאים לדפוס הנדרש: {{#regex}}',
+    // 'string.pattern.base': 'עם הערך {:[.]} לא מצליח להתאים לדפוס הנדרש: {{#regex}}',
     'string.pattern.name': 'עם הערך {:[.]} לא מצליח להתאים לתבנית {{#name}}',
     'string.pattern.invert.base': 'עם הערך {:[.]} תואם לתבנית ההפוכה: {{#regex}}',
     'string.pattern.invert.name': 'עם הערך {:[.]} תואם לתבנית {{#name}} הפוכה',
