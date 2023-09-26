@@ -98,7 +98,7 @@ function Cards() {
 
 
             <div className='addCardIcon'>
-                <ModalFullscreen />
+                <AddCard2 />
             </div>
 
         </>

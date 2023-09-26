@@ -52,12 +52,12 @@ h1{
     padding-right: 7px;
 }
 
-.like{
-    background-color: red;
+.cardLink svg.liked{
+    color: red;
 }
 
-.unlike{
-    background:none;
-}
+.cardLink svg.unlike{
+    color: black;
 
+}
 
