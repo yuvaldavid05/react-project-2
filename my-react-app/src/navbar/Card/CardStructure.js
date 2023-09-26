@@ -10,12 +10,14 @@ import { Link } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { GeneralContext } from '../../App';
 import { RoleTypes } from '../NavbarTop2';
+import { CardsContext } from './Cards';
 
 function CardStructure({ card }) {
-    const [like, setLike] = useState([]);
-    const [unlike, setUnlike] = useState([]);
+    // const [like, setLike] = useState([]);
+    // const [unlike, setUnlike] = useState([]);
     const [likeStatus, setLikeStatus] = useState(false);
     const { setLoader, roleType, user, cards, setCards } = useContext(GeneralContext);
+    const { like, setLike, unlike, setUnlike } = useContext(CardsContext);
 
 
 
@@ -28,6 +30,7 @@ function CardStructure({ card }) {
         })
             .then(() => {
                 console.log("נוסף כרטיס מועדף");
+                cards.filter(c => c.id === id ? c.favorite === true : '');
                 setLike(...like, id);
             });
     }
@@ -41,6 +44,7 @@ function CardStructure({ card }) {
         })
             .then(() => {
                 console.log(" הוסר כרטיס זה ");
+                cards.filter(c => c.id === id ? c.favorite === false : '');
                 setUnlike(...unlike, id);
             });
     }

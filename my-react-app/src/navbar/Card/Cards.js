@@ -15,12 +15,14 @@ import AddCard2 from './AddCard2';
 
 
 
-// export const CardsContext = React.createContext();
+export const CardsContext = React.createContext();
 
 
 
 function Cards() {
     // const [cards, setCards] = useState([]);
+    const [like, setLike] = useState([]);
+    const [unlike, setUnlike] = useState([]);
     const navigate = useNavigate();
     const { setLoader, roleType, user, cards, setCards } = useContext(GeneralContext);
 
@@ -33,11 +35,16 @@ function Cards() {
             .then(res => res.json())
             .then(data => {
                 setCards(data);
+                if (data.favorite) {
+
+                }
+
             }).finally(() => setLoader(false))
-    }, [])
+    }, []);
+
 
     return (
-        <>
+        <CardsContext.Provider value={{ like, setLike, unlike, setUnlike }}>
             <h1>מרכז העסקים שלי</h1>
             <Row xs={1} md={5} className="g-4 frameGrid">
 
@@ -101,7 +108,7 @@ function Cards() {
                 <AddCard2 />
             </div>
 
-        </>
+        </CardsContext.Provider>
 
 
     );
