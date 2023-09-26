@@ -11,7 +11,7 @@ import CardStructure from './CardStructure';
 import { useNavigate } from 'react-router-dom';
 import { GeneralContext } from '../../App';
 import { RoleTypes } from '../NavbarTop2';
-import ModalFullscreen from './addCard2';
+import AddCard2 from './AddCard2';
 
 
 

@@ -9,7 +9,7 @@ import React, { useEffect, useState } from 'react';
 import Loader from './compoents/Loader';
 import { RoleTypes } from './Navbar/NavbarTop2';
 import { useNavigate } from 'react-router-dom';
-import ModalFullscreen from './Navbar/Card/addCard2';
+import ModalFullscreen from './Navbar/Card/AddCard2';
 import AddCard from './Navbar/Card/AddCard';
 
 

@@ -12,13 +12,15 @@ import { GeneralContext } from '../../App';
 import { RoleTypes } from '../NavbarTop2';
 
 function CardStructure({ card }) {
-    const [like, setLike] = useState([]);
-    const [unlike, setUnlike] = useState([]);
+    // const [like, setLike] = useState([]);
+    // const [unlike, setUnlike] = useState([]);
+    const [likeStatus, setLikeStatus] = useState(false);
     const { setLoader, roleType, user, cards, setCards } = useContext(GeneralContext);
 
 
 
     const likedCard = (id) => {
+        setLikeStatus(true);
 
         fetch(`https://api.shipap.co.il/cards/${id}/favorite?token=d2960ef2-3431-11ee-b3e9-14dda9d4a5f0`, {
             credentials: 'include',
@@ -26,7 +28,19 @@ function CardStructure({ card }) {
         })
             .then(() => {
                 console.log("נוסף כרטיס מועדף")
-                setLike();
+                // setLike();
+            });
+    }
+
+    const unLikeCard = (id) => {
+        setLikeStatus(false);
+        fetch(`https://api.shipap.co.il/cards/${id}/unfavorite?token=d2960ef2-3431-11ee-b3e9-14dda9d4a5f0`, {
+            credentials: 'include',
+            method: 'PUT',
+        })
+            .then(() => {
+                console.log(" הוסר כרטיס זה ")
+                // setUnlike();
             });
     }
 
@@ -48,8 +62,8 @@ function CardStructure({ card }) {
 
                     <Stack direction="horizontal" gap={2} className='IconFrame' >
                         {(roleType === RoleTypes.business) || (roleType === RoleTypes.user) || (roleType === RoleTypes.none) ?
-                            <Card.Link onClick={() => likedCard(card.id)} className="p-2 ms-auto cardLink">
-                                <AiOutlineHeart />
+                            <Card.Link onClick={likeStatus ? () => likedCard(card.id) : () => unLikeCard(card.id)} className="p-2 ms-auto cardLink ">
+                                <AiOutlineHeart className={likeStatus ? 'liked' : 'unlike'} />
                             </Card.Link>
                             : ''
                         }
