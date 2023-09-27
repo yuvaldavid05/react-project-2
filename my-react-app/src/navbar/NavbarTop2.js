@@ -9,6 +9,8 @@ import { Link, useNavigate, useResolvedPath } from "react-router-dom";
 import { useContext } from 'react';
 import { GeneralContext } from '../App';
 
+import Dropdown from 'react-bootstrap/Dropdown';
+
 
 export const RoleTypes = {
     none: 0,
@@ -80,40 +82,56 @@ export default function NavbarTop() {
                         ))}
                     </Nav>
 
+                    {user &&
+                        <Nav>
+                            {settings.map(setting => (
+                                <Link to={setting.route} key={setting.route}>
+                                    <NavDropdown title="שם מלא" id="navbarScrollingDropdown">
+                                        <NavDropdown.Item>
+                                            {setting.title}
+                                        </NavDropdown.Item>
+                                        <NavDropdown.Divider />
+                                        <NavDropdown.Item onClick={logout}>
+                                            התנתק
+                                        </NavDropdown.Item>
+                                    </NavDropdown>
+                                </Link>
+                            ))}
 
-                    <Nav>
-                        {settings.map(((setting) => (
+
+                        </Nav>}
+
+
+
+
+                    {/* settings.map(((setting) => (
+                            <NavDropdown title={user.firstName} id="nav-dropdown">
+                                <Link to={setting.route} key={setting.route} >
+                                    <NavDropdown.Item eventKey="4.1">{setting.title}</NavDropdown.Item>
+                                </Link>
+
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item eventKey="4.4" >Separated link</NavDropdown.Item>
+                            </NavDropdown>
+                        ))) */}
+
+
+
+                    {/* <Dropdown>
+                        <Dropdown.Toggle variant="success" id="dropdown-basic">
+                            Dropdown Button
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
                             <Link to={setting.route} key={setting.route}>
-                                <NavDropdown title="שם מלא" id="navbarScrollingDropdown">
-                                    <NavDropdown.Item>
-                                        {setting.title}
-                                    </NavDropdown.Item>
-                                    <NavDropdown.Divider />
-                                    <NavDropdown.Item onClick={logout}>
-                                        התנתק
-                                    </NavDropdown.Item>
-                                </NavDropdown>
+                                <Dropdown.Item href="#/action-1">
+                                {setting.title}
+                                </Dropdown.Item>
+                                <hr/>
+                                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
                             </Link>
-                        )))}
-                    </Nav>
-
-
-
-
-                    {/* {settings.map(((setting) => (
-                        <NavDropdown title="Dropdown" id="nav-dropdown">
-                            <Link to={setting.route} key={setting.route} >
-                                <NavDropdown.Item eventKey="4.1">{setting.title}</NavDropdown.Item>
-                            </Link>
-
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item eventKey="4.4" >Separated link</NavDropdown.Item>
-                        </NavDropdown>
-                    )))} */}
-
-
-
-
+                        </Dropdown.Menu>
+                    </Dropdown> */}
 
                     <Form className="d-flex searchInput">
                         <Form.Control

@@ -6,7 +6,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
 import Stack from 'react-bootstrap/Stack';
 import VisitMe from './VisitMe';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { GeneralContext } from '../../App';
 import { RoleTypes } from '../NavbarTop2';
@@ -15,6 +15,7 @@ import { CardsContext } from './Cards';
 function CardStructure({ card }) {
     // const [like, setLike] = useState([]);
     // const [unlike, setUnlike] = useState([]);
+    const navigate = useNavigate();
     const [likeStatus, setLikeStatus] = useState(false);
     const { setLoader, roleType, user, cards, setCards } = useContext(GeneralContext);
     const { like, setLike, unlike, setUnlike } = useContext(CardsContext);
@@ -63,7 +64,11 @@ function CardStructure({ card }) {
                         {card.city} , {card.street} {card.houseNumber}
                     </Card.Text>
 
-                    <VisitMe nav={`/card/${card.id}`} />
+                    {/* <VisitMe nav={`/card/${card.id}`} /> */}
+
+
+                    <button onClick={() => navigate(`/cards/${card.id}`)}>מעבר לדף העסק</button>
+
 
                     <Stack direction="horizontal" gap={2} className='IconFrame' >
                         {(roleType === RoleTypes.business) || (roleType === RoleTypes.user) || (roleType === RoleTypes.none) ?
@@ -88,7 +93,7 @@ function CardStructure({ card }) {
                         }
                     </Stack>
                 </Card.Body>
-            </Card>
+            </Card >
         </>
 
     );

@@ -38,8 +38,9 @@ function App() {
                 }
             })
             .then(data => {
-                setUser(data.user);
+                setUser(data);
                 setRoleType(RoleTypes.user);
+
 
                 if (data.business) {
                     setRoleType(RoleTypes.business);
@@ -67,6 +68,7 @@ function App() {
                     <Router />
                 </header>
                 {loader && <Loader />}
+
                 <footer className='fot'>
                     <FooterNav />
                 </footer>

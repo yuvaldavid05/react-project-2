@@ -18,9 +18,9 @@ function Router() {
             <Route path="/about" element={<About />} />
             <Route path="/my-cards" element={<MyCards />} />
             <Route path="/favorite-csards" element={<FavoriteCards />} />
-            <Route path="/cards/:id" element={<CardPage />} />
             <Route path="/AdminManagement" element={<AdminManagement />} />
             <Route path="/account" element={<Account />} />
+            <Route path="/cards/:id" element={<CardPage />} />
 
 
             <Route path="/login" element={<Login />} />

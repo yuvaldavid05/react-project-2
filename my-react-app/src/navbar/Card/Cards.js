@@ -103,12 +103,15 @@ function Cards() {
                 </Card> */}
             </Row>
 
+            {(user && roleType === RoleTypes.business) &&
+                <div className='addCardIcon'>
+                    <AddCard2 />
+                </div>
+            }
 
-            <div className='addCardIcon'>
-                <AddCard2 />
-            </div>
 
         </CardsContext.Provider>
+
 
 
     );

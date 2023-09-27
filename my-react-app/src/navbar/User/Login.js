@@ -16,7 +16,7 @@ import { RoleTypes } from '../NavbarTop2';
 //     'password')
 
 function Login() {
-    const { user, setUser, isLogged, setIsLogged, setLoader, setRoleType } = useContext(GeneralContext);
+    const { user, setUser, isLogged, setIsLogged, setLoader, roleType, setRoleType } = useContext(GeneralContext);
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -51,7 +51,7 @@ function Login() {
                 }
             })
             .then(data => {
-                setUser(data.user);
+                setUser(data);
                 setRoleType(RoleTypes.user);
 
                 if (data.business) {
@@ -63,7 +63,7 @@ function Login() {
                 navigate('/');
 
                 console.log(data);
-                console.log(setRoleType);
+                console.log(roleType);
             })
             .catch(err => {
                 alert(err.message)
