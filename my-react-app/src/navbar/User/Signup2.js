@@ -148,7 +148,7 @@ function Signup() {
         <div className='frameSignup'>
             <h1><u>הרשמה</u></h1>
             <hr />
-            <Form onSubmit={signup}>
+            <Form onSubmit={signup} className='formSignUp'>
                 <Row>
                     {structure.filter(str => str.sm).map(s => (
                         s.type === 'boolean' ?

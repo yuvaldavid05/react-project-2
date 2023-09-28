@@ -17,7 +17,8 @@ function FavoriteCards() {
             .then(data => {
                 setFavoriteCards(data);
             });
-    }, [])
+    }, [favoriteCards])
+
     return (
         <div className="favoriteCardsFrame">
             <h2>הכרטיסים המועדפים שלי : </h2>

@@ -1,4 +1,4 @@
-.modal-header{
+/* .modal-header{
     direction: center;
     background-color: rgb(228, 234, 229);
 }
@@ -12,18 +12,48 @@
     font-size: 15px;
     padding:15px;
     color:black;   
+} */
+
+#formAddCard{
+    width: 80%;
+    margin: 25px auto;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: rgb(156, 223, 171) ;
 }
 
-
-.form-control{
-    
+#formAddCard h1{
+    margin:8px;
+    color:rgb(255, 251, 247);
+    font-size: 35px;
 }
-.col-sm-2,
-.col-sm-4,
-.col-sm-6,
-.col-sm-12{
+
+#formAddCard .row{
+    width: 90%;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+#formAddCard .col-sm-6{
+    padding:10px;
+}
+
+#formAddCard .btn{
+    margin-bottom: 15px;
+}
+
+.formAddCard .col-sm-2,
+.formAddCard .col-sm-4,
+.formAddCard .col-sm-6,
+.formAddCard .col-sm-12{
     border: none;
-    margin:10px 0;
+    /* margin:10px 0; */
+    padding:5px;
+}
+
+.formAddCard .fieldError{
+    border: 2px red solid;
 }
 
 .fieldErrorSignup{

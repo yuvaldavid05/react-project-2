@@ -117,8 +117,10 @@ function CardPage() {
             <div>
                 <Link to="/">
                     <button className='btnBackToCards'>
-                        <AiOutlineArrowRight />
-                        לדף הראשי
+                        <b>
+                            <AiOutlineArrowRight />
+                            לדף הראשי
+                        </b>
                     </button>
                 </Link>
             </div>

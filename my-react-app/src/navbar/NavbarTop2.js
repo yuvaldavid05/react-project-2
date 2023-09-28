@@ -10,6 +10,8 @@ import { useContext } from 'react';
 import { GeneralContext } from '../App';
 
 import Dropdown from 'react-bootstrap/Dropdown';
+import Col from 'react-bootstrap/esm/Col';
+import Image from 'react-bootstrap/esm/Image';
 
 
 export const RoleTypes = {
@@ -61,8 +63,10 @@ export default function NavbarTop() {
     return (
         <Navbar expand="lg" className="bg-body-tertiary NavFrame">
             <Container fluid>
-                <Navbar.Brand className='Icon'>
-                    <Link to="/">Icon</Link>
+                <Navbar.Brand className='icon'>
+                    <Link to="/">
+                        Icon
+                    </Link>
                 </Navbar.Brand>
                 <div className="vr" />
                 <Navbar.Toggle aria-controls="navbarScroll" />

@@ -21,33 +21,67 @@ function CardStructure({ card, pathPage }) {
 
     useEffect(() => {
         console.log("בדיקת מצב")
-    }, [likeStatus, setLikeStatus])
+        setLikeStatus(card.favorite);
+    }, [])
+
+
 
     const likedCard = (id) => {
+        console.log(likeStatus);
+        setLoader(true);
         fetch(`https://api.shipap.co.il/cards/${id}/favorite?token=d2960ef2-3431-11ee-b3e9-14dda9d4a5f0`, {
             credentials: 'include',
             method: 'PUT',
         })
             .then(() => {
-                cards.filter(c => c.id === id ? c.favorite === true : '');
+                cards.filter(c => c.id === id && c.favorite === false ? c.favorite === true : '');
                 setLikeStatus(true);
-                console.log(likeStatus);
                 console.log("נוסף כרטיס מועדף");
-            });
+            }).finally(() => setLoader(false))
+
     }
 
     const unLikeCard = (id) => {
+        console.log(likeStatus);
+        setLoader(true);
         fetch(`https://api.shipap.co.il/cards/${id}/unfavorite?token=d2960ef2-3431-11ee-b3e9-14dda9d4a5f0`, {
             credentials: 'include',
             method: 'PUT',
         })
             .then(() => {
+                cards.filter(c => c.id === id && c.favorite === true ? c.favorite === false : '');
                 setLikeStatus(false);
-                cards.filter(c => c.id === id ? c.favorite === false : '');
-                console.log(likeStatus);
                 console.log(" הוסר כרטיס זה ");
-            });
+                console.log(likeStatus);
+            }).finally(() => setLoader(false));
     }
+
+    const deleteCard = (id) => {
+        if (!window.confirm("למחוק פריט זה?")) {
+            return;
+        } else {
+            setLoader(true);
+            fetch(`https://api.shipap.co.il/business/cards/${id}?token=d2960ef2-3431-11ee-b3e9-14dda9d4a5f0`, {
+                credentials: 'include',
+                method: 'DELETE',
+            })
+                .then(() => {
+                    setCards(cards.filter(x => x.id !== id));
+                    console.log("פריט זה נמחק");
+                }).finally(() => setLoader(false))
+        }
+    }
+
+    // useEffect(() => {
+    //     setLoader(true);
+    //     fetch(`https://api.shipap.co.il/cards?token=d2960ef2-3431-11ee-b3e9-14dda9d4a5f0`, {
+    //         credentials: 'include',
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setCards(data);
+    //         }).finally(() => setLoader(false));
+    // }, [])
 
     return (
         <>
@@ -59,40 +93,41 @@ function CardStructure({ card, pathPage }) {
                         {card.description}
                     </Card.Text>
                     <Card.Text>
-                        {card.favorite === true ? 'true' : 'false'}
-                    </Card.Text>
-                    <Card.Text>
                         {card.city} , {card.street} {card.houseNumber}
                     </Card.Text>
 
-                    <div onClick={() => navigate(`/cards/${card.id}`)}>
+                    <br></br>
+                    <div className="divLinkToCardPage" onClick={() => navigate(`/cards/${card.id}`)}>
                         <VisitMe />
                     </div>
+                    {/* onClick={likeStatus === true ? () => unLikeCard(card.id) : () => likedCard(card.id)} */}
 
+                    <br></br>
+                    <br></br>
 
                     <Stack direction="horizontal" gap={2} className='IconFrame' >
                         {(roleType === RoleTypes.admin) || (roleType === RoleTypes.business) || (roleType === RoleTypes.user) ?
-                            <Card.Link onClick={likeStatus === true ? () => unLikeCard(card.id) : () => likedCard(card.id)} className="p-2 ms-auto cardLink ">
-                                {(likeStatus === true || card.favorite === true) ?
-                                    <AiFillHeart />
+                            <Card.Link onClick={likeStatus ? () => unLikeCard(card.id) : () => likedCard(card.id)} className="p-2 ms-auto cardLink">
+                                {likeStatus || card.favorite ?
+                                    <AiFillHeart className='fullHeart' />
                                     :
-                                    <AiOutlineHeart />
+                                    < AiOutlineHeart />
                                 }
-
 
                             </Card.Link>
                             : ''
                         }
 
-                        {(roleType === RoleTypes.business && card.clientId === user.id) ?
-                            <Card.Link href="#" className="p-2 cardLink">
+                        {/* {(roleType === RoleTypes.business && card.clientId === user.id) ? */}
+                        <Card.Link href="#" className="p-2 cardLink">
+                            <Link to={`/business/cards/${card.id}`}>
                                 <BiSolidEditAlt />
-                            </Card.Link >
-                            : ''
-                        }
+                            </Link>
+                        </Card.Link >
+                        {/* : ''} */}
 
                         {(roleType === RoleTypes.admin) || (roleType === RoleTypes.business && card.clientId === user.id) ?
-                            <Card.Link href="#" className="p-2 cardLink">
+                            <Card.Link onClick={() => deleteCard(card.id)} className="p-2 cardLink">
                                 <MdDelete />
                             </Card.Link>
                             : ''

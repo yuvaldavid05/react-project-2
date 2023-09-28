@@ -16,13 +16,17 @@
     font-size: 30px;
 }
 
-.col-sm-2,
-.col-sm-4,
-.col-sm-6{
+.formSignUp .col-sm-2,
+.formSignUp .col-sm-4,
+.formSignUp .col-sm-6{
     border: none;
-    margin:10px 0;
+    margin:8px 0;
 }
 
+.formSignUp.form-control{
+width:90%;
+margin: auto;
+}
 
 .divSpanBusiness{
     display: inline-block;
@@ -46,7 +50,7 @@
     background-color: rgb(53, 51, 51);
 }
 
-.fieldError{
+.formSignUp .fieldError{
     border: 2px red solid;
 }
 

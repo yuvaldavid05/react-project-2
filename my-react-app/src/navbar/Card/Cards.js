@@ -8,7 +8,7 @@ import Stack from 'react-bootstrap/Stack';
 import VisitMe from './VisitMe';
 import React, { useContext, useEffect, useState } from 'react';
 import CardStructure from './cardStructure/CardStructure';
-import { useNavigate, useResolvedPath } from 'react-router-dom';
+import { Link, useNavigate, useResolvedPath } from 'react-router-dom';
 import { GeneralContext } from '../../App';
 import { RoleTypes } from '../NavbarTop2';
 import AddCard2 from './addedCard/AddCard2';
@@ -64,7 +64,9 @@ function Cards() {
 
             {(user && (user.admin || roleType === RoleTypes.business)) &&
                 <div className='addCardIcon'>
-                    <AddCard2 />
+                    <Link to="/business/cards/new">
+                        +
+                    </Link>
                 </div>
             }
         </>

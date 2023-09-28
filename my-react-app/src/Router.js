@@ -8,6 +8,7 @@ import CardPage from './Navbar/Card/cardOnePage/CardPage';
 import Login from './Navbar/user/Login';
 import Signup2 from './Navbar/user/Signup2';
 import Account from './Navbar/user/Account';
+import AddCard from './Navbar/Card/addedCard/AddCard';
 
 
 
@@ -21,6 +22,7 @@ function Router() {
             <Route path="/AdminManagement" element={<AdminManagement />} />
             <Route path="/account" element={<Account />} />
             <Route path="/cards/:id" element={<CardPage />} />
+            <Route path="/business/cards/:id" element={<AddCard />} />
 
 
             <Route path="/login" element={<Login />} />
