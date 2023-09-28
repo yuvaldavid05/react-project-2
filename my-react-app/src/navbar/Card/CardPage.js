@@ -3,8 +3,15 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Image from 'react-bootstrap/Image';
+
+import { BsFillTelephoneFill } from 'react-icons/bs';
+import { AiOutlineMail } from 'react-icons/ai';
+import { MdPlace } from 'react-icons/md';
+import { AiOutlineArrowRight } from 'react-icons/ai';
+import { BsFillBalloonHeartFill } from 'react-icons/bs';
+import IconsCardPage from './IconsCardPage';
 
 
 function CardPage() {
@@ -29,46 +36,118 @@ function CardPage() {
     return (
         <div className='cardPage' >
 
-            <div className='headerCardPage' style={{ backgroundImage: `url(${cardFullPage.imgUrl})` }}>
-                {/* <Image src="https://i.pinimg.com/564x/18/2d/58/182d58a899c4f5403900538636913d65.jpg" fluid style={{ linearGradient: 'to center, rgba(48, 45, 45, 0.795), rgba(72, 62, 69, 0.833),`url(${cardFullPage.imgUrl})`' }} /> */}
+            {/* <div className='headerCardPage' style={{ backgroundImage: `url(${cardFullPage.imgUrl})` }}>
                 <h2>{cardFullPage.title}</h2>
             </div>
 
-            {/* <div className='bodyCardPage'>
-                <h3>אז קצת עלינו...</h3>
-                <h6>{cardFullPage.subtitle}</h6>
-                <p>{cardFullPage.description}</p>
-                <h6>{cardFullPage.title}</h6>
-                <p>כתובת:{cardFullPage.city}, {cardFullPage.street} {cardFullPage.houseNumber}</p>
-                <span style={{ color: 'gray' }}>תאריך העלאה:{cardFullPage.createdTime}</span>
-            </div> */}
-
-            {/* <div className='footerCardPage'>
-                <Container>
-                    <Row>
-                        <Col sm={4} className='col'>sm=4</Col>
-                        <Col sm={8} className='col'>sm=8</Col>
-                    </Row>
-                </Container>
-            </div> */}
 
             <div>
                 <Row>
-                    <Col>1 of 3</Col>
+                    <Col style={{ border: 'none' }}></Col>
                     <Col xs={6}>
-
-
                         <div className='bodyCardPage'>
                             <h3>אז קצת עלינו...</h3>
+                            <hr />
                             <h6>{cardFullPage.subtitle}</h6>
                             <p>{cardFullPage.description}</p>
                             <h6>{cardFullPage.title}</h6>
-                            <p>כתובת:{cardFullPage.city}, {cardFullPage.street} {cardFullPage.houseNumber}</p>
+                            <p>כתובת: {cardFullPage.city}, {cardFullPage.street} {cardFullPage.houseNumber}</p>
+                            <p> טלפון המסעדה : {cardFullPage.phone}</p>
+                            <p>אימייל לשמירת מקומות: {cardFullPage.email}</p>
                             <span style={{ color: 'gray' }}>תאריך העלאה:{cardFullPage.createdTime}</span>
                         </div>
                     </Col>
-                    <Col>3 of 3</Col>
+                    <Col style={{ border: 'none' }}></Col>
                 </Row>
+            </div> */}
+
+            <Container>
+                <Row>
+                    <Col md={6} style={{ margin: '0', padding: '0' }}>
+                        <div className='headerCardPage' style={{ backgroundImage: `url(${cardFullPage.imgUrl})` }}>
+                            <h2>{cardFullPage.title}</h2>
+                        </div>
+                    </Col>
+                    <Col md={6}>
+                        <div className='bodyCardPage'>
+                            <h3>אז קצת עלינו...</h3>
+                            <hr />
+                            <h6>{cardFullPage.subtitle}</h6>
+                            <p>{cardFullPage.description}</p>
+                            <h6>{cardFullPage.title}</h6>
+                            <p>כתובת: {cardFullPage.city}, {cardFullPage.street} {cardFullPage.houseNumber}</p>
+                            <p> טלפון המסעדה : {cardFullPage.phone}</p>
+                            <p>אימייל לשמירת מקומות: {cardFullPage.email}</p>
+
+
+                            <div className='iconFrameCardPage'>
+                                <div>
+                                    <IconsCardPage icon={<BsFillTelephoneFill />} text={cardFullPage.phone} />
+                                    {/* <BsFillTelephoneFill /> */}
+                                </div>
+                                <div>
+                                    <IconsCardPage icon={<AiOutlineMail />} text={cardFullPage.email} />
+                                    {/* <AiOutlineMail /> */}
+                                </div>
+                                <div>
+                                    <IconsCardPage icon={<MdPlace />} text={cardFullPage.city} />
+                                    {/* <MdPlace /> */}
+                                </div>
+                            </div>
+                            <span style={{ color: 'gray' }}>תאריך העלאה: {cardFullPage.createdTime}</span>
+                        </div>
+
+                        {(cardFullPage.web || cardFullPage.state) &&
+                            <>
+                                <hr />
+                                <h6> פרטים נוספים שהמסעדה שיתפה איתנו:</h6>
+                                <BsFillBalloonHeartFill />
+                                {cardFullPage.web &&
+                                    <p> אתר המסעדה : {cardFullPage.web}</p>
+                                }
+
+                                {cardFullPage.state &&
+                                    <p> מחוז בו המסעדה נמצאת : {cardFullPage.state}</p>
+                                }
+                            </>
+                        }
+                    </Col>
+                </Row>
+                {/* {(cardFullPage.web || cardFullPage.state) &&
+                    <Row>
+                        <Col xs lg="2">
+                            פרטים נוספים שהמסעדה שיתפה איתנו:
+                        </Col>
+                        <Col md="auto"> </Col>
+                        <Col>
+                            {cardFullPage.web &&
+                                <p> אתר המסעדה : {cardFullPage.web}</p>
+                            }
+
+                            {cardFullPage.state &&
+                                <p> מחוז בו המסעדה נמצאת : {cardFullPage.state}</p>
+                            }
+                        </Col>
+                    </Row>
+
+                } */}
+
+
+            </Container>
+            {cardFullPage.favorite === true &&
+                <div className='messageFav'>
+                    <h3>מסעדה זאת נמצאת במועדפים שלך !</h3>
+                </div>
+            }
+
+
+            <div>
+                <Link to="/">
+                    <button className='btnBackToCards'>
+                        <AiOutlineArrowRight />
+                        לדף הראשי
+                    </button>
+                </Link>
             </div>
         </div>
 

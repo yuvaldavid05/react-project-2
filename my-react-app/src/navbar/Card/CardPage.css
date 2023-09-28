@@ -1,25 +1,33 @@
 .cardPage{
-    /* width:100%;
-    min-height: 300px; */
+    width:100%;
+}
+
+.cardPage .row{
+    width:100%;
+    height:600px;
+    border:1px solid gray;
+    margin:0;
+}
+
+.col-sm-6, .col{
+    height: 100%;
+    padding:0;
+    margin: 0;
 }
 
 .headerCardPage{
     width: 100%;
-    height: 250px;
-    background-image:
-    linear-gradient(to center, rgba(48, 45, 45, 0.795), rgba(72, 62, 69, 0.833));
-  
+    height: 100%;
     background-position: center;
     background-size: cover ;
     background-repeat:repeat;
-    /* filter: blur(4px); */
     position: relative;
 }
 
 .headerCardPage h2{
     width:100%;
     height:100%;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(3px);
     z-index: 2;
     padding: auto;
     position: absolute;
@@ -29,18 +37,81 @@
     left: 0;
     right:0;
     font-size: 60px;
-    color:rgb(170, 162, 162);
+    color:rgb(126, 119, 119);
 }
 
-.bodyCardPage{
-    /* max-width:550px;
-    min-height: 300px;
-    margin: 35px auto;
-    padding: 15px;
-    text-align: right;
-    border: 2px solid black; */
+
+.bodyCardPage h3{
+    padding: 10px 0;
 }
 
 .col{
     border: 2px solid wheat;
+}
+
+.iconFrameCardPage{
+    display: flex;
+    justify-content: center;
+    margin: 5px 10px;
+}
+
+.iconFrameCardPage div {
+   margin: 0 10px;
+}
+.iconFrameCardPage svg{
+    /* margin:15px; */
+    margin: 0 5px;
+    font-size: 20px;
+    color:black;
+}
+
+.btnBackToCards{
+    width:150px;
+    height:45px;
+    border:none;
+    background-color:rgb(113, 184, 187);
+    border:1px solid rgba(167, 162, 162, 0.477);
+    border-radius: 10px;
+    color:wheat;
+    font-size: 15px;
+
+    position: fixed;
+    top:100px;
+    right:20px;
+    z-index: 10;
+}
+
+.btnBackToCards svg{
+    font-size: 25px;
+    padding-left: 5px;
+}
+
+.messageFav{
+    width:200px;
+    height:150px;
+    border: 2px solid coral ;
+    border-radius: 10px;
+    padding:18px;
+    position: absolute;
+    top:100px;
+    left:20px;
+}
+
+.messageFav h3{
+    color:coral;
+    font-size: 22px;
+}
+
+@media (max-width: 768px) {
+    .headerCardPage{
+        display: none;
+    }
+
+    .messageFav{   
+        height:80px;
+        top:80px;
+    }
+    .messageFav h3{
+        font-size: 15px;
+    }
 }
