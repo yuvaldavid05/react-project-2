@@ -11,7 +11,7 @@ import { AiOutlineMail } from 'react-icons/ai';
 import { MdPlace } from 'react-icons/md';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { BsFillBalloonHeartFill } from 'react-icons/bs';
-import IconsCardPage from '../IconsCardPage';
+import IconsCardPage from './IconsCardPage';
 
 
 function CardPage() {
@@ -34,36 +34,10 @@ function CardPage() {
 
     return (
         <div className='cardPage' >
-
-            {/* <div className='headerCardPage' style={{ backgroundImage: `url(${cardFullPage.imgUrl})` }}>
-                <h2>{cardFullPage.title}</h2>
-            </div>
-
-
-            <div>
-                <Row>
-                    <Col style={{ border: 'none' }}></Col>
-                    <Col xs={6}>
-                        <div className='bodyCardPage'>
-                            <h3>אז קצת עלינו...</h3>
-                            <hr />
-                            <h6>{cardFullPage.subtitle}</h6>
-                            <p>{cardFullPage.description}</p>
-                            <h6>{cardFullPage.title}</h6>
-                            <p>כתובת: {cardFullPage.city}, {cardFullPage.street} {cardFullPage.houseNumber}</p>
-                            <p> טלפון המסעדה : {cardFullPage.phone}</p>
-                            <p>אימייל לשמירת מקומות: {cardFullPage.email}</p>
-                            <span style={{ color: 'gray' }}>תאריך העלאה:{cardFullPage.createdTime}</span>
-                        </div>
-                    </Col>
-                    <Col style={{ border: 'none' }}></Col>
-                </Row>
-            </div> */}
-
             <Container>
                 <Row>
                     <Col md={6} style={{ margin: '0', padding: '0' }}>
-                        <div className='headerCardPage' style={{ backgroundImage: `url(${cardFullPage.imgUrl})` || 'defaultImage' }}>
+                        <div className='headerCardPage' style={{ backgroundImage: `url(${cardFullPage.imgUrl})` || defaultImage }}>
                             <h2>{cardFullPage.title}</h2>
                         </div>
                     </Col>

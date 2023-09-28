@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import Login from './Navbar/User/Login';
+import Login from './Navbar/user/Login';
 
 
 

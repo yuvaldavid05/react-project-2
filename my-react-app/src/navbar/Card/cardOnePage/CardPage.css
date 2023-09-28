@@ -9,6 +9,10 @@
     margin:0;
 }
 
+.container {
+    margin-top: 25px;
+}
+
 .col-sm-6, .col{
     height: 100%;
     padding:0;

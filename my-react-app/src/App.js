@@ -13,6 +13,7 @@ import ModalFullscreen from './Navbar/Card/addedCard/AddCard2';
 import AddCard from './Navbar/Card/addedCard/AddCard';
 
 
+
 export const GeneralContext = React.createContext();
 
 function App() {
@@ -22,6 +23,11 @@ function App() {
     const [roleType, setRoleType] = useState(RoleTypes.none);
     const [cards, setCards] = useState([]);
     const navigate = useNavigate();
+
+    // const [like, setLike] = useState([]);
+    // const [addLike, setAddLike] = useState([]);
+    // const [likeStatus, setLikeStatus] = useState(false);
+
 
 
     useEffect(() => {
@@ -48,6 +54,7 @@ function App() {
                 }
 
                 console.log(data);
+
             })
             .catch(err => {
                 setRoleType(RoleTypes.none);
@@ -69,7 +76,6 @@ function App() {
                     <Router />
                 </header>
                 {loader && <Loader />}
-
                 <footer className='fot'>
                     <FooterNav />
                 </footer>
