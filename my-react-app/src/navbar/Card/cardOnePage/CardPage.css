@@ -60,9 +60,9 @@
 }
 .iconFrameCardPage svg{
     /* margin:15px; */
-    margin: 0 5px;
+    margin:5px;
     font-size: 20px;
-    color:black;
+    color:rgba(0, 0, 0, 0.844);
 }
 
 .btnBackToCards{

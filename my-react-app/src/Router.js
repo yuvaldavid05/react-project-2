@@ -4,7 +4,7 @@ import About from './Navbar/About/About';
 import FavoriteCards from './Navbar/FavoritesCard/FavoriteCards';
 import AdminManagement from './Navbar/AdminManagement/AdminManagement';
 import MyCards from './Navbar/MyCards/MyCards';
-import CardPage from './Navbar/Card/CardPage';
+import CardPage from './Navbar/Card/cardOnePage/CardPage';
 import Login from './Navbar/User/Login';
 import Signup2 from './Navbar/User/Signup2';
 import Account from './Navbar/User/Account';

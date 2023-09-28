@@ -84,54 +84,37 @@ export default function NavbarTop() {
 
                     {user &&
                         <Nav>
-                            {settings.map(setting => (
-                                <Link to={setting.route} key={setting.route}>
-                                    <NavDropdown title="שם מלא" id="navbarScrollingDropdown">
-                                        <NavDropdown.Item>
+                            <NavDropdown title={user.admin ? user.fullName : user.firstName} id="navbarScrollingDropdown">
+                                {settings.map((setting) => (
+                                    <NavDropdown.Item>
+                                        <Link to={setting.route} key={setting.route}>
                                             {setting.title}
-                                        </NavDropdown.Item>
-                                        <NavDropdown.Divider />
-                                        <NavDropdown.Item onClick={logout}>
-                                            התנתק
-                                        </NavDropdown.Item>
-                                    </NavDropdown>
-                                </Link>
-                            ))}
-
-
+                                        </Link>
+                                    </NavDropdown.Item>
+                                ))}
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item onClick={logout}>
+                                    התנתק
+                                </NavDropdown.Item>
+                            </NavDropdown>
                         </Nav>}
 
 
 
 
-                    {/* settings.map(((setting) => (
-                            <NavDropdown title={user.firstName} id="nav-dropdown">
+                    {/* <Nav>
+
+                        <NavDropdown title="שם מלא" id="nav-dropdown">
+                            {settings.map((setting) => (
                                 <Link to={setting.route} key={setting.route} >
-                                    <NavDropdown.Item eventKey="4.1">{setting.title}</NavDropdown.Item>
+                                    {setting.title}
                                 </Link>
+                            ))}
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item >Separated link</NavDropdown.Item>
+                        </NavDropdown>
+                    </Nav> */}
 
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item eventKey="4.4" >Separated link</NavDropdown.Item>
-                            </NavDropdown>
-                        ))) */}
-
-
-
-                    {/* <Dropdown>
-                        <Dropdown.Toggle variant="success" id="dropdown-basic">
-                            Dropdown Button
-                        </Dropdown.Toggle>
-
-                        <Dropdown.Menu>
-                            <Link to={setting.route} key={setting.route}>
-                                <Dropdown.Item href="#/action-1">
-                                {setting.title}
-                                </Dropdown.Item>
-                                <hr/>
-                                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                            </Link>
-                        </Dropdown.Menu>
-                    </Dropdown> */}
 
                     <Form className="d-flex searchInput">
                         <Form.Control
@@ -142,9 +125,6 @@ export default function NavbarTop() {
                         />
                         <Button variant="outline-success" className='searchButton'>חיפוש</Button>
                     </Form>
-
-
-
 
                 </Navbar.Collapse>
             </Container>

@@ -11,7 +11,7 @@ import { AiOutlineMail } from 'react-icons/ai';
 import { MdPlace } from 'react-icons/md';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { BsFillBalloonHeartFill } from 'react-icons/bs';
-import IconsCardPage from './IconsCardPage';
+import IconsCardPage from '../IconsCardPage';
 
 
 function CardPage() {
@@ -20,7 +20,6 @@ function CardPage() {
 
 
     const defaultImage = 'https://i.pinimg.com/564x/18/2d/58/182d58a899c4f5403900538636913d65.jpg';
-    const cardImage = cardFullPage.imgUrl;
 
     useEffect(() => {
         fetch(`https://api.shipap.co.il/cards/${id}?token=d2960ef2-3431-11ee-b3e9-14dda9d4a5f0`, {
@@ -64,7 +63,7 @@ function CardPage() {
             <Container>
                 <Row>
                     <Col md={6} style={{ margin: '0', padding: '0' }}>
-                        <div className='headerCardPage' style={{ backgroundImage: `url(${cardFullPage.imgUrl})` }}>
+                        <div className='headerCardPage' style={{ backgroundImage: `url(${cardFullPage.imgUrl})` || 'defaultImage' }}>
                             <h2>{cardFullPage.title}</h2>
                         </div>
                     </Col>
@@ -82,16 +81,16 @@ function CardPage() {
 
                             <div className='iconFrameCardPage'>
                                 <div>
-                                    <IconsCardPage icon={<BsFillTelephoneFill />} text={cardFullPage.phone} />
-                                    {/* <BsFillTelephoneFill /> */}
+                                    {/* <IconsCardPage icon={<BsFillTelephoneFill />} text={cardFullPage.phone} /> */}
+                                    <BsFillTelephoneFill />
                                 </div>
                                 <div>
-                                    <IconsCardPage icon={<AiOutlineMail />} text={cardFullPage.email} />
-                                    {/* <AiOutlineMail /> */}
+                                    {/* <IconsCardPage icon={<AiOutlineMail />} text={cardFullPage.email} /> */}
+                                    <AiOutlineMail />
                                 </div>
                                 <div>
-                                    <IconsCardPage icon={<MdPlace />} text={cardFullPage.city} />
-                                    {/* <MdPlace /> */}
+                                    {/* <IconsCardPage icon={<MdPlace />} text={cardFullPage.city} /> */}
+                                    <MdPlace />
                                 </div>
                             </div>
                             <span style={{ color: 'gray' }}>תאריך העלאה: {cardFullPage.createdTime}</span>

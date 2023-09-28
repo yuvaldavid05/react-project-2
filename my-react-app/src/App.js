@@ -9,8 +9,8 @@ import React, { useEffect, useState } from 'react';
 import Loader from './compoents/Loader';
 import { RoleTypes } from './Navbar/NavbarTop2';
 import { useNavigate } from 'react-router-dom';
-import ModalFullscreen from './Navbar/Card/AddCard2';
-import AddCard from './Navbar/Card/AddCard';
+import ModalFullscreen from './Navbar/Card/addedCard/AddCard2';
+import AddCard from './Navbar/Card/addedCard/AddCard';
 
 
 export const GeneralContext = React.createContext();
@@ -41,12 +41,13 @@ function App() {
                 setUser(data);
                 setRoleType(RoleTypes.user);
 
-
                 if (data.business) {
                     setRoleType(RoleTypes.business);
                 } else if (data.admin) {
                     setRoleType(RoleTypes.admin);
                 }
+
+                console.log(data);
             })
             .catch(err => {
                 setRoleType(RoleTypes.none);

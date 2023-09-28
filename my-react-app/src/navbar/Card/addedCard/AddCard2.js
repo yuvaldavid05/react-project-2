@@ -3,11 +3,11 @@ import { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Joi from 'joi';
-import { JOI_HEBREW } from '../../joi-hebrew';
+import { JOI_HEBREW } from '../../../joi-hebrew';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import { GeneralContext } from '../../App';
+import { GeneralContext } from '../../../App';
 import { useNavigate } from 'react-router-dom';
 
 

@@ -1,16 +1,17 @@
-import './Cards.css';
+// import './Cards.css';
+import './CardStructure.css';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import { BiSolidEditAlt } from "react-icons/bi";
 import { AiOutlineHeart } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
 import Stack from 'react-bootstrap/Stack';
-import VisitMe from './VisitMe';
+import VisitMe from '../VisitMe';
 import { Link, useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
-import { GeneralContext } from '../../App';
-import { RoleTypes } from '../NavbarTop2';
-import { CardsContext } from './Cards';
+import { GeneralContext } from '../../../App';
+import { RoleTypes } from '../../NavbarTop2';
+import { CardsContext } from '../Cards';
 
 function CardStructure({ card }) {
     // const [like, setLike] = useState([]);
@@ -64,14 +65,17 @@ function CardStructure({ card }) {
                         {card.city} , {card.street} {card.houseNumber}
                     </Card.Text>
 
-                    {/* <VisitMe nav={`/card/${card.id}`} /> */}
+                    <div onClick={() => navigate(`/cards/${card.id}`)}>
+                        <VisitMe />
+                    </div>
 
 
-                    <button onClick={() => navigate(`/cards/${card.id}`)}>מעבר לדף העסק</button>
+
+                    {/* <button onClick={() => navigate(`/cards/${card.id}`)}>מעבר לדף העסק</button> */}
 
 
                     <Stack direction="horizontal" gap={2} className='IconFrame' >
-                        {(roleType === RoleTypes.business) || (roleType === RoleTypes.user) || (roleType === RoleTypes.none) ?
+                        {(user.admin) || (roleType === RoleTypes.business) || (roleType === RoleTypes.user) ?
                             <Card.Link onClick={!likeStatus ? () => likedCard(card.id) : () => unLikeCard(card.id)} className="p-2 ms-auto cardLink ">
                                 <AiOutlineHeart className={likeStatus ? 'liked' : 'unlike'} />
                             </Card.Link>
@@ -85,7 +89,7 @@ function CardStructure({ card }) {
                             : ''
                         }
 
-                        {(roleType === RoleTypes.admin) || (roleType === RoleTypes.business && card.clientId === user.id) ?
+                        {(user.admin) || (roleType === RoleTypes.business && card.clientId === user.id) ?
                             <Card.Link href="#" className="p-2 cardLink">
                                 <MdDelete />
                             </Card.Link>

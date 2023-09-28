@@ -11,7 +11,7 @@ import CardStructure from './CardStructure';
 import { useNavigate } from 'react-router-dom';
 import { GeneralContext } from '../../App';
 import { RoleTypes } from '../NavbarTop2';
-import AddCard2 from './AddCard2';
+import AddCard2 from './addedCard/AddCard2';
 
 
 
@@ -103,7 +103,7 @@ function Cards() {
                 </Card> */}
             </Row>
 
-            {(user && roleType === RoleTypes.business) &&
+            {(user && (user.admin || roleType === RoleTypes.business)) &&
                 <div className='addCardIcon'>
                     <AddCard2 />
                 </div>

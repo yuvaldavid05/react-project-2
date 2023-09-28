@@ -7,7 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 
 
-function VisitMe({ nav }) {
+function VisitMe() {
     // const navigate = useNavigate();
 
     const renderTooltip = (props) => (
@@ -22,13 +22,13 @@ function VisitMe({ nav }) {
             delay={{ show: 250, hide: 400 }}
             overlay={renderTooltip}
         >
-            <Link to={nav}> <Button variant="success">
+            <Button variant="success">
 
                 <LuMousePointerClick />
                 ...מי אנחנו
 
             </Button>
-            </Link>
+
         </OverlayTrigger>
     );
 }

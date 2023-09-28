@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Joi from 'joi';
-import { JOI_HEBREW } from '../../joi-hebrew';
+import { JOI_HEBREW } from '../../../joi-hebrew';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 
