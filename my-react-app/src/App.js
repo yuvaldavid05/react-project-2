@@ -9,17 +9,20 @@ import React, { useEffect, useState } from 'react';
 import Loader from './compoents/Loader';
 import { RoleTypes } from './Navbar/NavbarTop2';
 import { useNavigate } from 'react-router-dom';
-import ModalFullscreen from './Navbar/Card/addedCard/AddCard2';
 import AddCard from './Navbar/Card/addedCard/AddCard';
+import Snackbar from './compoents/Snackbar';
+import Searchbar from './Navbar/Searchbar';
 
 
 
 export const GeneralContext = React.createContext();
 
 function App() {
+    const [searchWord, setSearchWord] = useState('')
     const [user, setUser] = useState();
     const [isLogged, setIsLogged] = useState();
     const [loader, setLoader] = useState(true);
+    const [snackbar, setSnackbar] = useState('');
     const [roleType, setRoleType] = useState(RoleTypes.none);
     const [cards, setCards] = useState([]);
     const navigate = useNavigate();
@@ -28,7 +31,10 @@ function App() {
     // const [addLike, setAddLike] = useState([]);
     // const [likeStatus, setLikeStatus] = useState(false);
 
-
+    const snackbarOn = text => {
+        setSnackbar(text);
+        setTimeout(() => setSnackbar(''), 3 * 1000);
+    }
 
     useEffect(() => {
         fetch(`https://api.shipap.co.il/clients/login`, {
@@ -53,6 +59,7 @@ function App() {
                     setRoleType(RoleTypes.admin);
                 }
 
+                snackbarOn(`מחובר ${user.fullName || user.firstName}`)
                 console.log(data);
 
             })
@@ -66,8 +73,7 @@ function App() {
 
     return (
         <GeneralContext.Provider value={{
-            user, setUser, isLogged, setIsLogged, setLoader, roleType, setRoleType, cards,
-            setCards
+            user, setUser, isLogged, setIsLogged, setLoader, roleType, setRoleType, cards, setCards, snackbarOn, searchWord, setSearchWord
         }}>
             <div className="App">
                 <header className="App-header">
@@ -76,6 +82,7 @@ function App() {
                     <Router />
                 </header>
                 {loader && <Loader />}
+                {snackbar && <Snackbar text={snackbar} />}
                 <footer className='fot'>
                     <FooterNav />
                 </footer>

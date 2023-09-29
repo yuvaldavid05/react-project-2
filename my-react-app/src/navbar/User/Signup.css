@@ -21,6 +21,7 @@
 .formSignUp .col-sm-6{
     border: none;
     margin:8px 0;
+    padding: 10px;
 }
 
 .formSignUp.form-control{

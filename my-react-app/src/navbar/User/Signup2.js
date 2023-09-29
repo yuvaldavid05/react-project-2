@@ -33,14 +33,14 @@ function Signup() {
 
     const [errors, setErrors] = useState({});
     const [isValid, setIsValid] = useState(false);
-    const { setLoader } = useContext(GeneralContext);
+    const { setLoader, snackbarOn } = useContext(GeneralContext);
     const navigate = useNavigate();
 
     const loginSchema = Joi.object({
         firstName: Joi.string().min(2).max(10).required(),
         middleName: Joi.string().min(2).max(10),
         lastName: Joi.string().min(2).max(10).required(),
-        phone: Joi.string().min(2).max(10).required(),
+        phone: Joi.number().min(2).max(10).required(),
         password: Joi.string().min(8).max(32).regex(/^(?=.*?[A-Z])(?=.*?[a-z])(?=(.*?[0-9]){4})(?=.*?[#?!@$%^&*-]).{8,}$/).required().messages({
             "string.pattern.base": "הסיסמה חייבת לכלול לפחות אות אחת גדולה ואות אחת קטנה באנגלית, לפחות ארבעה מספרים וסימן מיוחד מבין הסימנים הבאים (!@%$#^&*-_*)",
         }),
@@ -80,10 +80,10 @@ function Signup() {
 
         let obj = {};
 
-        if (id == 'business') {
+        if (id === 'business') {
             obj = {
                 ...formData,
-                [id]: value == 'on',
+                [id]: value === 'on',
             };
         } else {
             obj = {
@@ -134,6 +134,7 @@ function Signup() {
             })
             .then(() => {
                 navigate('/login');
+                snackbarOn('המשתמש נרשם בהצלחה')
                 console.log(formData);
             })
             .catch(err => {
@@ -176,7 +177,7 @@ function Signup() {
 
 
 
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="submit" disabled={!isValid}>
                     הירשם
                 </Button>
             </Form>

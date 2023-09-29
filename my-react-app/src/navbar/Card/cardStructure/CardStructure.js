@@ -17,10 +17,9 @@ import { RoleTypes } from '../../NavbarTop2';
 function CardStructure({ card, pathPage }) {
     const navigate = useNavigate();
     const [likeStatus, setLikeStatus] = useState(false);
-    const { setLoader, roleType, user, cards, setCards } = useContext(GeneralContext);
+    const { setLoader, roleType, user, cards, setCards, snackbarOn } = useContext(GeneralContext);
 
     useEffect(() => {
-        console.log("בדיקת מצב")
         setLikeStatus(card.favorite);
     }, [])
 
@@ -36,7 +35,7 @@ function CardStructure({ card, pathPage }) {
             .then(() => {
                 cards.filter(c => c.id === id && c.favorite === false ? c.favorite === true : '');
                 setLikeStatus(true);
-                console.log("נוסף כרטיס מועדף");
+                snackbarOn("כרטיס זה נוסף למועדפים");
             }).finally(() => setLoader(false))
 
     }
@@ -51,7 +50,7 @@ function CardStructure({ card, pathPage }) {
             .then(() => {
                 cards.filter(c => c.id === id && c.favorite === true ? c.favorite === false : '');
                 setLikeStatus(false);
-                console.log(" הוסר כרטיס זה ");
+                snackbarOn(" כרטיס זה הוסר מהמועדפים ");
                 console.log(likeStatus);
             }).finally(() => setLoader(false));
     }
@@ -67,7 +66,7 @@ function CardStructure({ card, pathPage }) {
             })
                 .then(() => {
                     setCards(cards.filter(x => x.id !== id));
-                    console.log("פריט זה נמחק");
+                    snackbarOn("פריט זה נמחק");
                 }).finally(() => setLoader(false))
         }
     }
@@ -89,6 +88,9 @@ function CardStructure({ card, pathPage }) {
                 <Card.Img variant="top" src={card.imgUrl} alt={card.imgAlt} />
                 <Card.Body>
                     <Card.Title>{card.title}</Card.Title>
+                    <Card.Text>
+                        {card.subtitle}
+                    </Card.Text>
                     <Card.Text>
                         {card.description}
                     </Card.Text>
@@ -118,13 +120,13 @@ function CardStructure({ card, pathPage }) {
                             : ''
                         }
 
-                        {/* {(roleType === RoleTypes.business && card.clientId === user.id) ? */}
-                        <Card.Link href="#" className="p-2 cardLink">
-                            <Link to={`/business/cards/${card.id}`}>
-                                <BiSolidEditAlt />
-                            </Link>
-                        </Card.Link >
-                        {/* : ''} */}
+                        {(roleType === RoleTypes.business && card.clientId === user.id) ?
+                            <Card.Link href="#" className="p-2 cardLink">
+                                <Link to={`/business/cards/${card.id}`}>
+                                    <BiSolidEditAlt />
+                                </Link>
+                            </Card.Link >
+                            : ''}
 
                         {(roleType === RoleTypes.admin) || (roleType === RoleTypes.business && card.clientId === user.id) ?
                             <Card.Link onClick={() => deleteCard(card.id)} className="p-2 cardLink">

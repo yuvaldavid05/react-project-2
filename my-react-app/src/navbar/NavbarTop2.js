@@ -12,6 +12,7 @@ import { GeneralContext } from '../App';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Col from 'react-bootstrap/esm/Col';
 import Image from 'react-bootstrap/esm/Image';
+import SearchBar from './Searchbar';
 
 
 export const RoleTypes = {
@@ -39,7 +40,7 @@ const settings = [
 ];
 
 export default function NavbarTop() {
-    const { user, roleType, setUser, setRoleType, setLoader } = useContext(GeneralContext);
+    const { user, roleType, setUser, setRoleType, setLoader, snackbarOn } = useContext(GeneralContext);
     const navigate = useNavigate();
     const path = useResolvedPath().pathname;
     console.log(path);
@@ -47,17 +48,15 @@ export default function NavbarTop() {
 
     const logout = () => {
         setLoader(true);
-
         fetch(`https://api.shipap.co.il/clients/logout`, {
             credentials: 'include',
         })
             .then(() => {
                 setUser();
                 setRoleType(RoleTypes.none);
-                setLoader(false);
-
                 navigate('/');
-            });
+                snackbarOn('המשתמש התנתק בהצלחה')
+            }).finally(() => setLoader(false));
     }
 
     return (
@@ -120,7 +119,7 @@ export default function NavbarTop() {
                     </Nav> */}
 
 
-                    <Form className="d-flex searchInput">
+                    {/* <Form className="d-flex searchInput">
                         <Form.Control
                             type="search"
                             placeholder="חיפוש"
@@ -128,8 +127,9 @@ export default function NavbarTop() {
                             aria-label="Search"
                         />
                         <Button variant="outline-success" className='searchButton'>חיפוש</Button>
-                    </Form>
+                    </Form> */}
 
+                    <SearchBar />
                 </Navbar.Collapse>
             </Container>
         </Navbar >

@@ -12,11 +12,12 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 
 
-function ModalFullscreen() {
+function AddCard() {
     const { id } = useParams();
     const [formData, setFormData] = useState({});
     const [errors, setErrors] = useState({});
-    const { setLoader, cards, setCards } = useContext(GeneralContext);
+    const [isValid, setIsValid] = useState(false);
+    const { setLoader, cards, setCards, snackbarOn } = useContext(GeneralContext);
     const navigate = useNavigate();
 
 
@@ -104,6 +105,11 @@ function ModalFullscreen() {
             if (error) {
                 err[id] = error.message;
             }
+
+            setIsValid(false);
+
+        } else {
+            setIsValid(true);
         }
 
         setFormData(obj);
@@ -125,9 +131,9 @@ function ModalFullscreen() {
                 // console.log(data);
 
                 if (formData.id) {
-                    console.log('הכרטיס נשמר בהצלחה');
+                    snackbarOn('הכרטיס עודכן בהצלחה');
                 } else {
-                    console.log('הכרטיס נוסף בהצלחה');
+                    snackbarOn('הכרטיס נוסף בהצלחה');
                 }
                 // setCards(data);
                 navigate('/');
@@ -140,7 +146,7 @@ function ModalFullscreen() {
     return (
         <>
             <div>
-                <Link to="/">
+                <Link to="/" style={{ textDecoration: 'none' }}>
                     <button className='btnBackToCards'>
                         <b>
                             <AiOutlineArrowRight />
@@ -150,7 +156,7 @@ function ModalFullscreen() {
                 </Link>
             </div>
             <Form id='formAddCard' onSubmit={addNewCard}>
-                <h1>{formData.id ? 'עריכת' : 'הוספת'}</h1>
+                <h1> {formData.id ? 'עריכת' : 'הוספת'} כרטיסייה</h1>
                 <hr />
                 <Row>
                     {structureNewCard.filter(strN => strN.sm).map(sNewCard => (
@@ -165,7 +171,7 @@ function ModalFullscreen() {
                         </>
                     ))}
                 </Row >
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="submit" disabled={!formData.id && !isValid}>
                     {formData.id ? 'שמירה' : 'הוספה'}
                 </Button>
             </Form >
@@ -174,4 +180,4 @@ function ModalFullscreen() {
 }
 
 
-export default ModalFullscreen;
+export default AddCard;

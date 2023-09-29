@@ -11,7 +11,7 @@ import CardStructure from './cardStructure/CardStructure';
 import { Link, useNavigate, useResolvedPath } from 'react-router-dom';
 import { GeneralContext } from '../../App';
 import { RoleTypes } from '../NavbarTop2';
-import AddCard2 from './addedCard/AddCard2';
+import { search } from '../Searchbar';
 
 // import CardStructure2 from './cardStructure/CardStructure2';
 
@@ -25,9 +25,9 @@ function Cards() {
     // const [unlike, setUnlike] = useState(0);
     // const [likeStatus, setLikeStatus] = useState(false);
     const navigate = useNavigate();
-    const { setLoader, roleType, user, cards, setCards } = useContext(GeneralContext);
+    const { setLoader, roleType, user, cards, setCards, snackbarOn, searchWord } = useContext(GeneralContext);
 
-    const pathCard = useResolvedPath().pathname;
+    // const pathCard = useResolvedPath().pathname;
 
 
     useEffect(() => {
@@ -47,13 +47,12 @@ function Cards() {
 
 
     // CardsContext.Provider value={{ like, setLike, unlike, setUnlike }}
-
+    // toLocaleLowerCase()
     return (
         <>
             <h1>מרכז העסקים שלי</h1>
             <Row xs={1} md={5} className="g-4 frameGrid">
-
-                {cards.map(c => (
+                {cards.filter(c => search(searchWord, c.title, c.description, c.subtitle, c.city, c.street)).map(c => (
                     <CardStructure key={c.id} card={c} />
 
                     // <CardStructure2 key={c.id} card={c} status={c.favorite === true ? true : false} />
@@ -62,7 +61,7 @@ function Cards() {
 
             </Row>
 
-            {(user && (user.admin || roleType === RoleTypes.business)) &&
+            {((roleType === RoleTypes.admin || roleType === RoleTypes.business)) &&
                 <div className='addCardIcon'>
                     <Link to="/business/cards/new">
                         +

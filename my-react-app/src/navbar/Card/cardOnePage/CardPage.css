@@ -9,6 +9,28 @@
     margin:0;
 }
 
+.cardPage div:nth-child(1) a{
+    text-decoration: none;
+}
+
+.btnBackToCards{
+    width:150px;
+    height:45px;
+    display: block;
+    border:none;
+    background-color:rgb(113, 184, 187);
+    border:1px solid rgba(167, 162, 162, 0.477);
+    border-radius: 10px;
+    color:wheat;
+    font-size: 15px;
+    margin: 15px 15px 0 0;
+}
+
+.btnBackToCards svg{
+    font-size: 25px;
+    padding-left: 5px;
+}
+
 .container {
     margin-top: 25px;
 }
@@ -69,26 +91,6 @@
     color:rgba(0, 0, 0, 0.844);
 }
 
-.btnBackToCards{
-    width:150px;
-    height:45px;
-    border:none;
-    background-color:rgb(113, 184, 187);
-    border:1px solid rgba(167, 162, 162, 0.477);
-    border-radius: 10px;
-    color:wheat;
-    font-size: 15px;
-
-    position: fixed;
-    top:100px;
-    right:20px;
-    z-index: 10;
-}
-
-.btnBackToCards svg{
-    font-size: 25px;
-    padding-left: 5px;
-}
 
 .messageFav{
     width:200px;
@@ -97,7 +99,7 @@
     border-radius: 10px;
     padding:18px;
     position: absolute;
-    top:100px;
+    top:120px;
     left:20px;
 }
 
@@ -113,7 +115,7 @@
 
     .messageFav{   
         height:80px;
-        top:80px;
+        top:120px;
     }
     .messageFav h3{
         font-size: 15px;

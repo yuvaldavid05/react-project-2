@@ -2,7 +2,7 @@ import './CardPage.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Image from 'react-bootstrap/Image';
 
@@ -12,16 +12,20 @@ import { MdPlace } from 'react-icons/md';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { BsFillBalloonHeartFill } from 'react-icons/bs';
 import IconsCardPage from './IconsCardPage';
+import { GeneralContext } from '../../../App';
 
 
 function CardPage() {
     const { id } = useParams();
     const [cardFullPage, setCardFullPage] = useState({});
+    const { setLoader, snackbarOn } = useContext(GeneralContext);
+
 
 
     const defaultImage = 'https://i.pinimg.com/564x/18/2d/58/182d58a899c4f5403900538636913d65.jpg';
 
     useEffect(() => {
+        setLoader(true);
         fetch(`https://api.shipap.co.il/cards/${id}?token=d2960ef2-3431-11ee-b3e9-14dda9d4a5f0`, {
             credentials: 'include',
         })
@@ -29,11 +33,23 @@ function CardPage() {
             .then(data => {
                 setCardFullPage(data);
                 console.log(cardFullPage);
-            });
+            }).finally(() => setLoader(false))
     }, [])
 
     return (
         <div className='cardPage' >
+
+            <div>
+                <Link to="/">
+                    <button className='btnBackToCards'>
+                        <b>
+                            <AiOutlineArrowRight />
+                            לדף הראשי
+                        </b>
+                    </button>
+                </Link>
+            </div>
+
             <Container>
                 <Row>
                     <Col md={6} style={{ margin: '0', padding: '0' }}>
@@ -86,24 +102,7 @@ function CardPage() {
                         }
                     </Col>
                 </Row>
-                {/* {(cardFullPage.web || cardFullPage.state) &&
-                    <Row>
-                        <Col xs lg="2">
-                            פרטים נוספים שהמסעדה שיתפה איתנו:
-                        </Col>
-                        <Col md="auto"> </Col>
-                        <Col>
-                            {cardFullPage.web &&
-                                <p> אתר המסעדה : {cardFullPage.web}</p>
-                            }
 
-                            {cardFullPage.state &&
-                                <p> מחוז בו המסעדה נמצאת : {cardFullPage.state}</p>
-                            }
-                        </Col>
-                    </Row>
-
-                } */}
 
 
             </Container>
@@ -114,16 +113,7 @@ function CardPage() {
             }
 
 
-            <div>
-                <Link to="/">
-                    <button className='btnBackToCards'>
-                        <b>
-                            <AiOutlineArrowRight />
-                            לדף הראשי
-                        </b>
-                    </button>
-                </Link>
-            </div>
+
         </div>
 
     )

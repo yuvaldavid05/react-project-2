@@ -1,0 +1,16 @@
+.frameSnackbar{
+}
+
+#frameSnackbar .alert-dark{
+    width: 20%;
+    height: 50px;
+    margin: auto;
+    position: fixed;
+    bottom: 12%;
+    left: 50px;
+    z-index: 5;
+    background-color: rgba(19, 18, 18, 0.941);
+    border: none;
+    border-radius: 3px;
+    color:whitesmoke;
+}

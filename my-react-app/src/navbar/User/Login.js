@@ -16,7 +16,7 @@ import { RoleTypes } from '../NavbarTop2';
 //     'password')
 
 function Login() {
-    const { user, setUser, isLogged, setIsLogged, setLoader, roleType, setRoleType } = useContext(GeneralContext);
+    const { user, setUser, isLogged, setIsLogged, setLoader, roleType, setRoleType, snackbarOn } = useContext(GeneralContext);
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -59,7 +59,7 @@ function Login() {
                 } else if (data.admin) {
                     setRoleType(RoleTypes.admin);
                 }
-                alert("המשתמש התחבר בהצלחה");
+                snackbarOn("המשתמש התחבר בהצלחה");
                 navigate('/');
 
                 console.log(data);
