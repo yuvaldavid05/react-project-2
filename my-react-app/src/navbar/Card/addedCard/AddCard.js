@@ -1,7 +1,6 @@
 import './AddCard.css';
 import { useContext, useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
 import Joi from 'joi';
 import { JOI_HEBREW } from '../../../joi-hebrew';
 import Form from 'react-bootstrap/Form';
@@ -14,10 +13,10 @@ import { AiOutlineArrowRight } from 'react-icons/ai';
 
 function AddCard() {
     const { id } = useParams();
-    const [formData, setFormData] = useState({});
-    const [errors, setErrors] = useState({});
-    const [isValid, setIsValid] = useState(false);
-    const { setLoader, cards, setCards, snackbarOn } = useContext(GeneralContext);
+    const [formDataCard, setFormDataCard] = useState({});
+    const [errorsCard, setErrorsCard] = useState({});
+    const [isValidCard, setIsValidCard] = useState(false);
+    const { setLoader, snackbarOn } = useContext(GeneralContext);
     const navigate = useNavigate();
 
 
@@ -41,7 +40,7 @@ function AddCard() {
 
     useEffect(() => {
         if (id === 'new') {
-            setFormData({
+            setFormDataCard({
                 title: '',
                 description: '',
                 subtitle: '',
@@ -64,7 +63,7 @@ function AddCard() {
                 credentials: 'include',
             })
                 .then(res => res.json())
-                .then(data => setFormData(data))
+                .then(data => setFormDataCard(data))
                 .finally(setLoader(false));
         }
     }, [id, setLoader])
@@ -75,7 +74,7 @@ function AddCard() {
         const { id, value } = ev.target;
 
         const obj = {
-            ...formData,
+            ...formDataCard,
             [id]: value,
         };
 
@@ -97,7 +96,7 @@ function AddCard() {
         });
 
         const schema = cardSchema.validate(obj, { abortEarly: false, messages: { he: JOI_HEBREW }, errors: { language: 'he' } });
-        const err = { ...errors, [id]: undefined };
+        const err = { ...errorsCard, [id]: undefined };
 
         if (schema.error) {
             const error = schema.error.details.find(e => e.context.key === id);
@@ -106,14 +105,14 @@ function AddCard() {
                 err[id] = error.message;
             }
 
-            setIsValid(false);
+            setIsValidCard(false);
 
         } else {
-            setIsValid(true);
+            setIsValidCard(true);
         }
 
-        setFormData(obj);
-        setErrors(err);
+        setFormDataCard(obj);
+        setErrorsCard(err);
     };
 
 
@@ -121,16 +120,16 @@ function AddCard() {
         ev.preventDefault();
         setLoader(true);
 
-        fetch(`https://api.shipap.co.il/business/cards` + (formData.id ? `/${id}` : '') + `?token=d2960ef2-3431-11ee-b3e9-14dda9d4a5f0`, {
+        fetch(`https://api.shipap.co.il/business/cards` + (formDataCard.id ? `/${id}` : '') + `?token=d2960ef2-3431-11ee-b3e9-14dda9d4a5f0`, {
             credentials: 'include',
-            method: formData.id ? "PUT" : "POST",
+            method: formDataCard.id ? "PUT" : "POST",
             headers: { 'Content-type': 'application/json' },
-            body: JSON.stringify(formData),
+            body: JSON.stringify(formDataCard),
         })
             .then(() => {
                 // console.log(data);
 
-                if (formData.id) {
+                if (formDataCard.id) {
                     snackbarOn('הכרטיס עודכן בהצלחה');
                 } else {
                     snackbarOn('הכרטיס נוסף בהצלחה');
@@ -156,23 +155,23 @@ function AddCard() {
                 </Link>
             </div>
             <Form id='formAddCard' onSubmit={addNewCard}>
-                <h1> {formData.id ? 'עריכת' : 'הוספת'} כרטיסייה</h1>
+                <h1> {formDataCard.id ? 'עריכת' : 'הוספת'} כרטיסייה</h1>
                 <hr />
                 <Row>
                     {structureNewCard.filter(strN => strN.sm).map(sNewCard => (
                         <>
                             <Col sm={sNewCard.sm} key={sNewCard.name}>
                                 <Form.Label name={sNewCard.name}> {sNewCard.required ? sNewCard.label + ' *' : sNewCard.label}</Form.Label>
-                                <Form.Control placeholder={sNewCard.label} id={sNewCard.name} type={sNewCard.type} required={sNewCard.required} value={formData[sNewCard.name]} className={sNewCard.required ? (errors[sNewCard.name] ? 'fieldError' : '') : ''} onChange={handleInputChange} />
+                                <Form.Control placeholder={sNewCard.label} id={sNewCard.name} type={sNewCard.type} required={sNewCard.required} value={formDataCard[sNewCard.name]} className={sNewCard.required ? (errorsCard[sNewCard.name] ? 'fieldError' : '') : ''} onChange={handleInputChange} />
 
-                                {sNewCard.required ? (errors[sNewCard.name] ? <div className='fieldErrorSignup'>{errors[sNewCard.name]}</div> : '') : ''}
+                                {sNewCard.required ? (errorsCard[sNewCard.name] ? <div className='fieldErrorSignup'>{errorsCard[sNewCard.name]}</div> : '') : ''}
                             </Col>
 
                         </>
                     ))}
                 </Row >
-                <Button variant="primary" type="submit" disabled={!formData.id && !isValid}>
-                    {formData.id ? 'שמירה' : 'הוספה'}
+                <Button variant="primary" type="submit" disabled={!formDataCard.id && !isValidCard}>
+                    {formDataCard.id ? 'שמירה' : 'הוספה'}
                 </Button>
             </Form >
         </>

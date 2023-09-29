@@ -53,7 +53,7 @@ function Cards() {
             <h1>מרכז העסקים שלי</h1>
             <Row xs={1} md={5} className="g-4 frameGrid">
                 {cards.filter(c => search(searchWord, c.title, c.description, c.subtitle, c.city, c.street)).map(c => (
-                    <CardStructure key={c.id} card={c} />
+                    <CardStructure key={c.id} card={c} pathPage={'/'} />
 
                     // <CardStructure2 key={c.id} card={c} status={c.favorite === true ? true : false} />
 

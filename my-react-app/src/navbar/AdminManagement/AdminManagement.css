@@ -1,4 +1,5 @@
 .MiniCardInfo{
-    width:50rem;
+    width:95%;
+    min-height: 60vh    ;
     margin: 50px auto;
 }

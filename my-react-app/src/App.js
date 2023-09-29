@@ -1,18 +1,13 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavbarTop from './Navbar/NavbarTop';
 import NavbarTop2 from './Navbar/NavbarTop2';
 import FooterNav from './Footer/FooterNav';
 import Router from './Router';
-import RouterAuth from './RouterAuth';
 import React, { useEffect, useState } from 'react';
 import Loader from './compoents/Loader';
 import { RoleTypes } from './Navbar/NavbarTop2';
 import { useNavigate } from 'react-router-dom';
-import AddCard from './Navbar/Card/addedCard/AddCard';
 import Snackbar from './compoents/Snackbar';
-import Searchbar from './Navbar/Searchbar';
-
 
 
 export const GeneralContext = React.createContext();
@@ -26,10 +21,6 @@ function App() {
     const [roleType, setRoleType] = useState(RoleTypes.none);
     const [cards, setCards] = useState([]);
     const navigate = useNavigate();
-
-    // const [like, setLike] = useState([]);
-    // const [addLike, setAddLike] = useState([]);
-    // const [likeStatus, setLikeStatus] = useState(false);
 
     const snackbarOn = text => {
         setSnackbar(text);
@@ -77,7 +68,6 @@ function App() {
         }}>
             <div className="App">
                 <header className="App-header">
-                    {/* <NavbarTop /> */}
                     <NavbarTop2 />
                     <Router />
                 </header>

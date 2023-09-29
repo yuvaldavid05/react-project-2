@@ -71,16 +71,6 @@ function CardStructure({ card, pathPage }) {
         }
     }
 
-    // useEffect(() => {
-    //     setLoader(true);
-    //     fetch(`https://api.shipap.co.il/cards?token=d2960ef2-3431-11ee-b3e9-14dda9d4a5f0`, {
-    //         credentials: 'include',
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setCards(data);
-    //         }).finally(() => setLoader(false));
-    // }, [])
 
     return (
         <>
@@ -102,7 +92,6 @@ function CardStructure({ card, pathPage }) {
                     <div className="divLinkToCardPage" onClick={() => navigate(`/cards/${card.id}`)}>
                         <VisitMe />
                     </div>
-                    {/* onClick={likeStatus === true ? () => unLikeCard(card.id) : () => likedCard(card.id)} */}
 
                     <br></br>
                     <br></br>

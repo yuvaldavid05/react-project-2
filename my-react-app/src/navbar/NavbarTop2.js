@@ -30,9 +30,9 @@ const pages = [
     { route: '/about', title: 'אודות' },
     { route: '/login', title: 'התחבר', permissions: [RoleTypes.none] },
     { route: '/signup', title: 'הרשמה', permissions: [RoleTypes.none] },
-    { route: '/favorite-cards', title: 'מועדפים', permissions: [RoleTypes.user, RoleTypes.business, RoleTypes.admin] },
-    { route: '/my-cards', title: 'הכרטיסים שלי', permissions: [RoleTypes.business, RoleTypes.admin] },
-    { route: '/AdminManagement', title: 'ניהול משתמשים', permissions: [RoleTypes.admin] },
+    { route: '/cards/favorite', title: 'מועדפים', permissions: [RoleTypes.user, RoleTypes.business, RoleTypes.admin] },
+    { route: '/business/cards', title: 'הכרטיסים שלי', permissions: [RoleTypes.business, RoleTypes.admin] },
+    { route: '/admin/clients', title: 'ניהול משתמשים', permissions: [RoleTypes.admin] },
 ];
 
 const settings = [
@@ -64,7 +64,7 @@ export default function NavbarTop() {
             <Container fluid>
                 <Navbar.Brand className='icon'>
                     <Link to="/">
-                        Icon
+                        UP
                     </Link>
                 </Navbar.Brand>
                 <div className="vr" />
@@ -101,33 +101,6 @@ export default function NavbarTop() {
                                 </NavDropdown.Item>
                             </NavDropdown>
                         </Nav>}
-
-
-
-
-                    {/* <Nav>
-
-                        <NavDropdown title="שם מלא" id="nav-dropdown">
-                            {settings.map((setting) => (
-                                <Link to={setting.route} key={setting.route} >
-                                    {setting.title}
-                                </Link>
-                            ))}
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item >Separated link</NavDropdown.Item>
-                        </NavDropdown>
-                    </Nav> */}
-
-
-                    {/* <Form className="d-flex searchInput">
-                        <Form.Control
-                            type="search"
-                            placeholder="חיפוש"
-                            className="me-2"
-                            aria-label="Search"
-                        />
-                        <Button variant="outline-success" className='searchButton'>חיפוש</Button>
-                    </Form> */}
 
                     <SearchBar />
                 </Navbar.Collapse>
