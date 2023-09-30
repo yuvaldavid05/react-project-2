@@ -15,7 +15,7 @@ import { GeneralContext } from '../../../App';
 function CardPage() {
     const { id } = useParams();
     const [cardFullPage, setCardFullPage] = useState({});
-    const { setLoader, snackbarOn } = useContext(GeneralContext);
+    const { setLoader } = useContext(GeneralContext);
 
 
 
@@ -68,15 +68,12 @@ function CardPage() {
 
                             <div className='iconFrameCardPage'>
                                 <div>
-                                    {/* <IconsCardPage icon={<BsFillTelephoneFill />} text={cardFullPage.phone} /> */}
                                     <BsFillTelephoneFill />
                                 </div>
                                 <div>
-                                    {/* <IconsCardPage icon={<AiOutlineMail />} text={cardFullPage.email} /> */}
                                     <AiOutlineMail />
                                 </div>
                                 <div>
-                                    {/* <IconsCardPage icon={<MdPlace />} text={cardFullPage.city} /> */}
                                     <MdPlace />
                                 </div>
                             </div>
