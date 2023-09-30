@@ -1,9 +1,8 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavbarTop2 from './Navbar/NavbarTop2';
+import NavbarTop2 from './NavbarTop/NavbarTop2';
 import FooterNav from './Footer/FooterNav';
 import Router from './Router';
-
 import React, { useEffect, useState } from 'react';
 import Loader from './compoents/Loader';
 import { RoleTypes } from './Navbar/NavbarTop2';

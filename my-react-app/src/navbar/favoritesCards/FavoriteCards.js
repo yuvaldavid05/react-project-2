@@ -3,7 +3,8 @@ import { useContext, useEffect, useState } from "react";
 import Row from "react-bootstrap/esm/Row";
 import CardStructure from "../Card/cardStructure/CardStructure";
 import { GeneralContext } from "../../App";
-import { search } from "../Searchbar";
+import { search } from '../../NavbarTop/Searchbar';
+
 
 
 function FavoriteCards() {

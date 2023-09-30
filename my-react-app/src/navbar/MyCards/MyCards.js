@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import CardStructure from "../Card/cardStructure/CardStructure";
 import Row from 'react-bootstrap/Row';
 import { GeneralContext } from '../../App';
-import { search } from '../Searchbar';
+import { search } from '../../NavbarTop/Searchbar';
 
 
 function MyCards() {

@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from 'react';
 import { GeneralContext } from '../../App';
 import { JOI_HEBREW } from '../../joi-hebrew';
-import { RoleTypes } from '../NavbarTop2';
+import { RoleTypes } from '../../NavbarTop/NavbarTop2';
 
 
 

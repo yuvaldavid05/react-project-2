@@ -1,6 +1,4 @@
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
@@ -8,10 +6,6 @@ import './NavbarTop.css';
 import { Link, useNavigate, useResolvedPath } from "react-router-dom";
 import { useContext } from 'react';
 import { GeneralContext } from '../App';
-
-import Dropdown from 'react-bootstrap/Dropdown';
-import Col from 'react-bootstrap/esm/Col';
-import Image from 'react-bootstrap/esm/Image';
 import SearchBar from './Searchbar';
 import ButtonDarkMode from '../compoents/ButtonDarkMode';
 
