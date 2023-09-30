@@ -1,6 +1,6 @@
 import './Signup.css';
 import Joi from 'joi';
-import { useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -40,7 +40,7 @@ function Signup() {
         firstName: Joi.string().min(2).max(10).required(),
         middleName: Joi.string().min(2).max(10),
         lastName: Joi.string().min(2).max(10).required(),
-        phone: Joi.number().min(2).max(10).required(),
+        phone: Joi.string().regex(/^[0-9]{10,15}$/).messages({ 'string.pattern.base': `טלפון חייב להיות לפחות 10 ספרות` }).required(),
         password: Joi.string().min(8).max(32).regex(/^(?=.*?[A-Z])(?=.*?[a-z])(?=(.*?[0-9]){4})(?=.*?[#?!@$%^&*-]).{8,}$/).required().messages({
             "string.pattern.base": "הסיסמה חייבת לכלול לפחות אות אחת גדולה ואות אחת קטנה באנגלית, לפחות ארבעה מספרים וסימן מיוחד מבין הסימנים הבאים (!@%$#^&*-_*)",
         }),
@@ -153,7 +153,7 @@ function Signup() {
                 <Row>
                     {structure.filter(str => str.sm).map(s => (
                         s.type === 'boolean' ?
-                            <>
+                            <React.Fragment key={s.name}>
                                 <div className='divSpanBusiness'>משתמש עיסקי? לחץ על שדה הפרופיל העיסקי להשלמת התהליך:</div>
                                 <Col className='checkboxSignupForm' >
                                     <Form.Check
@@ -164,7 +164,7 @@ function Signup() {
                                     />
                                 </Col>
 
-                            </>
+                            </React.Fragment >
                             :
                             <Col sm={s.sm} key={s.name} >
                                 <Form.Label name={s.name}>{s.required ? s.label + ' *' : s.label}</Form.Label>
@@ -177,11 +177,12 @@ function Signup() {
 
 
 
-                <Button variant="primary" type="submit" disabled={!isValid}>
+                <Button variant="primary" type="submit" >
                     הירשם
                 </Button>
             </Form>
         </div >
+        // disabled={!isValid}
     );
 }
 

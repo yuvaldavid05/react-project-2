@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarTop2 from './Navbar/NavbarTop2';
 import FooterNav from './Footer/FooterNav';
 import Router from './Router';
+
 import React, { useEffect, useState } from 'react';
 import Loader from './compoents/Loader';
 import { RoleTypes } from './Navbar/NavbarTop2';
@@ -50,11 +51,11 @@ function App() {
                     setRoleType(RoleTypes.admin);
                 }
 
-                snackbarOn(`מחובר ${user.fullName || user.firstName}`)
+                snackbarOn(` ${data.fullName || data.firstName} מחובר/ת`)
                 console.log(data);
 
             })
-            .catch(err => {
+            .catch(() => {
                 setRoleType(RoleTypes.none);
                 navigate('/');
 

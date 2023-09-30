@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import { AiFillDelete, AiOutlineDelete } from 'react-icons/ai';
 import { MdDeleteOutline } from 'react-icons/md';
@@ -10,24 +10,28 @@ import Card from 'react-bootstrap/Card';
 import Nav from 'react-bootstrap/Nav';
 
 
+
+
 function AdminTable() {
     const [clients, setClients] = useState([]);
 
+
+
     const structureAdmin = [
-        { name: 'firstName', type: 'text', label: 'שם פרטי', required: true, block: false, sm: '4' },
-        { name: 'middleName', type: 'text', label: 'שם אמצעי', required: false, block: false, sm: '4' },
-        { name: 'lastName', type: 'text', label: 'שם משפחה', required: true, block: false, sm: '4' },
-        { name: 'phone', type: 'tel', label: 'טלפון', required: true, block: false, sm: '6' },
-        { name: 'email', type: 'email', label: 'אימייל', required: true, block: false, sm: '6' },
-        { name: 'imgUrl', type: 'text', label: 'קישור לתמונה', required: false, block: false, sm: '6' },
-        { name: 'imgAlt', type: 'text', label: 'תיאור תמונה', required: false, block: false, sm: '6' },
-        { name: 'state', type: 'text', label: 'מחוז', required: false, block: false, sm: '6' },
-        { name: 'country', type: 'text', label: 'מדינה', required: true, block: false, sm: '6' },
-        { name: 'city', type: 'text', label: 'עיר', required: true, block: false, sm: '4' },
-        { name: 'street', type: 'text', label: 'רחוב', required: true, block: false, sm: '2' },
-        { name: 'houseNumber', type: 'number', label: 'מספר בית', required: true, block: false, sm: '2' },
-        { name: 'zip', type: 'number', label: 'מיקוד', required: false, block: false, sm: '2' },
-        { name: 'business', type: 'boolean', label: 'לקוח עסקי', required: true, block: false, sm: '6' },
+        { name: 'firstName', type: 'text', label: 'שם פרטי', business: true, block: false, sm: '4' },
+        { name: 'middleName', type: 'text', label: 'שם אמצעי', business: false, block: false, sm: '4' },
+        { name: 'lastName', type: 'text', label: 'שם משפחה', business: true, block: false, sm: '4' },
+        { name: 'phone', type: 'tel', label: 'טלפון', business: true, block: false, sm: '6' },
+        { name: 'email', type: 'email', label: 'אימייל', business: true, block: false, sm: '6' },
+        { name: 'imgUrl', type: 'text', label: 'קישור לתמונה', business: false, block: false, sm: '6' },
+        { name: 'imgAlt', type: 'text', label: 'תיאור תמונה', business: false, block: false, sm: '6' },
+        { name: 'state', type: 'text', label: 'מחוז', business: false, block: false, sm: '6' },
+        { name: 'country', type: 'text', label: 'מדינה', business: true, block: false, sm: '6' },
+        { name: 'city', type: 'text', label: 'עיר', business: true, block: false, sm: '4' },
+        { name: 'street', type: 'text', label: 'רחוב', business: true, block: false, sm: '2' },
+        { name: 'houseNumber', type: 'number', label: 'מספר בית', business: true, block: false, sm: '2' },
+        { name: 'zip', type: 'number', label: 'מיקוד', business: false, block: false, sm: '2' },
+        { name: 'business', type: 'boolean', label: 'לקוח עסקי', business: true, block: false, sm: '6' },
 
     ]
 
@@ -56,32 +60,25 @@ function AdminTable() {
             });
     }
 
+    //     switch () {
+    //         case x
+    // }
     return (
-        <Card className='MiniCardInfo'>
 
+        <Card className='MiniCardInfo'>
             <Card.Header>
                 <Nav variant="tabs" defaultActiveKey="#first">
                     <Nav.Item>
-                        <Nav.Link href=''>
-                            Active
-                        </Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                        <Nav.Link href="#link">Link</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                        <Nav.Link href="#disabled" disabled>
-                            Disabled
+                        <Nav.Link href='#first'>
+                            לקוחות
                         </Nav.Link>
                     </Nav.Item>
                 </Nav>
             </Card.Header>
-
             <Card.Body>
                 <Card.Title>כל הלקוחות</Card.Title>
                 <Card.Text>
                     -
-
                     <Table responsive className='adminTable'>
                         <thead>
                             <tr>
@@ -90,7 +87,7 @@ function AdminTable() {
                                     <th key={i}>{str.label}</th>
                                 )
                                 )}
-                                <th>עריכה</th>
+                                {/* <th>עריכה</th> */}
                                 <th>מחיקה</th>
                             </tr>
                         </thead>
@@ -101,16 +98,19 @@ function AdminTable() {
                                     <th></th>
                                     {structureAdmin.map((str2, index) => (
 
-                                        <td key={index}>{client[str2.name] || '-'}</td>
+                                        str2.type === 'boolean' ?
+                                            <td key={index}>{client[str2.name] ? 'כן' : '-'}</td>
+                                            :
+                                            <td key={index}>{client[str2.name] || '-'}</td>
 
 
                                     ))}
                                     <>
-                                        <td>
+                                        {/* <td>
                                             <Link to={`/admin/clients/${client.id}`}>
                                                 <RiEditBoxLine />
                                             </Link>
-                                        </td>
+                                        </td> */}
                                         <td onClick={() => removeClient(client.id)}>
                                             <AiFillDelete />
                                         </td>
@@ -121,12 +121,9 @@ function AdminTable() {
 
                         </tbody>
                     </Table >
-
                 </Card.Text>
                 <Button variant="primary">Go somewhere</Button>
             </Card.Body>
-
-
         </Card>
 
     );

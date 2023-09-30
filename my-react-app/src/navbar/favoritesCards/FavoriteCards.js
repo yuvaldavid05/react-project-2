@@ -1,3 +1,4 @@
+import './FavoriteCards.css';
 import { useContext, useEffect, useState } from "react";
 import Row from "react-bootstrap/esm/Row";
 import CardStructure from "../Card/cardStructure/CardStructure";

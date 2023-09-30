@@ -11,8 +11,8 @@ import { GeneralContext } from '../App';
 
 
 const pagesFot = [
-    { route: '/my-cards', title: 'הכרטיסים שלי', permissions: [RoleTypes.business, RoleTypes.admin], icon: <BiSolidUserPin /> },
-    { route: '/favorite-cards', title: 'מועדפים', permissions: [RoleTypes.user, RoleTypes.business, RoleTypes.admin], icon: <BiHeartCircle /> },
+    { route: '/business/cards', title: 'הכרטיסים שלי', permissions: [RoleTypes.business, RoleTypes.admin], icon: <BiSolidUserPin /> },
+    { route: '/cards/favorite', title: 'מועדפים', permissions: [RoleTypes.user, RoleTypes.business, RoleTypes.admin], icon: <BiHeartCircle /> },
     { route: '/about', title: 'אודות', icon: <BiInfoCircle /> },
 ];
 

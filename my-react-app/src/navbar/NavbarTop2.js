@@ -36,7 +36,7 @@ const pages = [
 ];
 
 const settings = [
-    { route: '/account', title: 'אזור אישי', permissions: [RoleTypes.user, RoleTypes.business, RoleTypes.admin] },
+    { route: '/admin/clients', title: 'ניהול משתמשים', permissions: [RoleTypes.admin] },
 ];
 
 export default function NavbarTop() {
@@ -88,7 +88,7 @@ export default function NavbarTop() {
                     {user &&
                         <Nav>
                             <NavDropdown title={user.admin ? user.fullName : user.firstName} id="navbarScrollingDropdown">
-                                {settings.map((setting) => (
+                                {settings.filter(p => !p.permissions || checkPermissions(p.permissions, roleType)).map((setting) => (
                                     <NavDropdown.Item>
                                         <Link to={setting.route} key={setting.route}>
                                             {setting.title}

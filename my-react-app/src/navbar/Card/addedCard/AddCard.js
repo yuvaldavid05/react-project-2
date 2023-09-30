@@ -82,7 +82,7 @@ function AddCard() {
             title: Joi.string().min(2).max(30).required(),
             description: Joi.string().min(2).max(200).required(),
             subtitle: Joi.string().min(2).max(15).required(),
-            phone: Joi.string().min(2).max(10).required(),
+            phone: Joi.string().regex(/^[0-9]{10,15}$/).messages({ 'string.pattern.base': `טלפון חייב להיות לפחות 10 ספרות` }).required(),
             email: Joi.string().required().email({ tlds: false }),
             web: Joi.string().min(0).max(500),
             imgUrl: Joi.string().min(0).max(500),
@@ -105,10 +105,10 @@ function AddCard() {
                 err[id] = error.message;
             }
 
-            setIsValidCard(false);
+            // setIsValidCard(false);
 
         } else {
-            setIsValidCard(true);
+            // setIsValidCard(true);
         }
 
         setFormDataCard(obj);
@@ -170,7 +170,7 @@ function AddCard() {
                         </>
                     ))}
                 </Row >
-                <Button variant="primary" type="submit" disabled={!formDataCard.id && !isValidCard}>
+                <Button variant="primary" type="submit" >
                     {formDataCard.id ? 'שמירה' : 'הוספה'}
                 </Button>
             </Form >

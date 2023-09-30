@@ -9,6 +9,10 @@
 
 }
 
+.cardFrame .card-img, .card-img-top{
+    height:248px;
+}
+
 .divLinkToCardPage{
     position: absolute;
     bottom: 55px;

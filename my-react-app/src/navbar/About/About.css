@@ -1,0 +1,7 @@
+.frameAbout{
+   width:60%;
+   min-height : 300px;
+   border: 1px solid gray;
+   margin: 25px auto;
+   padding: 25px;
+}
