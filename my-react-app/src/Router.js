@@ -1,14 +1,14 @@
 import { Route, Routes } from 'react-router-dom';
-import Cards from './Navbar/Card/Cards';
-import About from './Navbar/about/About';
-import FavoriteCards from './Navbar/favoritesCards/FavoriteCards';
-import MyCards from './Navbar/myCards/MyCards';
-import CardPage from './Navbar/Card/cardOnePage/CardPage';
-import Login from './Navbar/user/Login';
-import Signup2 from './Navbar/user/Signup2';
-import AddCard from './Navbar/Card/addedCard/AddCard';
-import AdminTable from './Navbar/adminManagement/AdminTable';
-import ErrorPage from './Navbar/errorPage/ErrorPage';
+import Cards from './Pages/Card/Cards';
+import About from './Pages/about/About';
+import FavoriteCards from './Pages/favoritesCards/FavoriteCards';
+import MyCards from './Pages/myCards/MyCards';
+import CardPage from './Pages/Card/cardOnePage/CardPage';
+import Login from './Pages/user/Login';
+import Signup2 from './Pages/user/Signup2';
+import AddCard from './Pages/Card/addedCard/AddCard';
+import AdminTable from './Pages/adminManagement/AdminTable';
+import ErrorPage from './Pages/errorPage/ErrorPage';
 
 
 
