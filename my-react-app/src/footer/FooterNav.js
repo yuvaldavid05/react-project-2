@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import { BiInfoCircle, BiHeartCircle, BiSolidUserPin } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import { RoleTypes } from '../Navbar/NavbarTop2';
+import { RoleTypes } from '../NavbarTop/NavbarTop';
 import { useContext } from 'react';
 import { GeneralContext } from '../App';
 

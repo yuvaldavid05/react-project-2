@@ -1,7 +1,6 @@
 // import './Cards.css';
 import './CardStructure.css';
 import Card from 'react-bootstrap/Card';
-import Row from 'react-bootstrap/Row';
 import { BiSolidEditAlt } from "react-icons/bi";
 import { AiOutlineHeart } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
@@ -11,7 +10,7 @@ import VisitMe from '../VisitMe';
 import { Link, useNavigate } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import { GeneralContext } from '../../../App';
-import { RoleTypes } from '../../NavbarTop2';
+import { RoleTypes } from '../../../NavbarTop/NavbarTop';
 
 
 function CardStructure({ card, pathPage }) {

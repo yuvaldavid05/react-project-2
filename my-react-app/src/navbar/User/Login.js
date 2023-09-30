@@ -6,24 +6,16 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from 'react';
 import { GeneralContext } from '../../App';
 import { JOI_HEBREW } from '../../joi-hebrew';
-import { RoleTypes } from '../../NavbarTop/NavbarTop2';
-
-
-
-
-// email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
-// password: Joi.string().min(6).max(25).required().regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-//     'password')
+import { RoleTypes } from '../../NavbarTop/NavbarTop';
 
 function Login() {
-    const { user, setUser, isLogged, setIsLogged, setLoader, roleType, setRoleType, snackbarOn } = useContext(GeneralContext);
+    const { setUser, setLoader, roleType, setRoleType, snackbarOn } = useContext(GeneralContext);
     const [formData, setFormData] = useState({
         email: '',
         password: '',
     });
     const [loginError, setLoginError] = useState('');
     const [errors, setErrors] = useState({});
-    const [isValid, setIsValid] = useState(false);
     const loginSchema = Joi.object({
         email: Joi.string().required(),
         password: Joi.string().min(6).max(25).required(),
@@ -92,9 +84,6 @@ function Login() {
                 errors[id] = error.message;
             }
 
-            setIsValid(false);
-        } else {
-            setIsValid(true);
         }
 
         setErrors(errors);
@@ -112,8 +101,6 @@ function Login() {
                 <Form.Text className="text-muted DivfieldError">
                     {errors.email ? errors.email : ''}
                 </Form.Text>
-
-
 
                 <Form.Group className="mb-3">
                     <Form.Control type="password" placeholder="הכנס סיסמא" id='password' value={formData.password} className={errors.password ? 'fieldError' : ''} onChange={handleError} />

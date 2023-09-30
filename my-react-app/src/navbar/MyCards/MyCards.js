@@ -5,11 +5,9 @@ import Row from 'react-bootstrap/Row';
 import { GeneralContext } from '../../App';
 import { search } from '../../NavbarTop/Searchbar';
 
-
 function MyCards() {
     const [myCards, setMyCards] = useState([]);
     const { setLoader, searchWord } = useContext(GeneralContext);
-
 
     useEffect(() => {
         setLoader(true);

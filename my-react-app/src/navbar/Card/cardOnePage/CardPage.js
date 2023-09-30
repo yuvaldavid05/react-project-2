@@ -4,14 +4,11 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import Image from 'react-bootstrap/Image';
-
 import { BsFillTelephoneFill } from 'react-icons/bs';
 import { AiOutlineMail } from 'react-icons/ai';
 import { MdPlace } from 'react-icons/md';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { BsFillBalloonHeartFill } from 'react-icons/bs';
-import IconsCardPage from './IconsCardPage';
 import { GeneralContext } from '../../../App';
 
 

@@ -1,15 +1,11 @@
 import Button from 'react-bootstrap/Button';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
-
 import { LuMousePointerClick } from "react-icons/lu";
-import { Link, useNavigate } from 'react-router-dom';
 
 
 
 function VisitMe() {
-    // const navigate = useNavigate();
-
     const renderTooltip = (props) => (
         <Tooltip id="button-tooltip" {...props}>
             בקרו אותנו

@@ -1,14 +1,13 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavbarTop2 from './NavbarTop/NavbarTop2';
+import NavbarTop from './NavbarTop/NavbarTop';
 import FooterNav from './Footer/FooterNav';
 import Router from './Router';
 import React, { useEffect, useState } from 'react';
 import Loader from './compoents/Loader';
-import { RoleTypes } from './Navbar/NavbarTop2';
+import { RoleTypes } from './NavbarTop/NavbarTop';
 import { useNavigate } from 'react-router-dom';
 import Snackbar from './compoents/Snackbar';
-
 
 export const GeneralContext = React.createContext();
 
@@ -68,7 +67,7 @@ function App() {
         }}>
             <div className="App">
                 <header className="App-header">
-                    <NavbarTop2 />
+                    <NavbarTop />
                     <Router />
                 </header>
                 {loader && <Loader />}

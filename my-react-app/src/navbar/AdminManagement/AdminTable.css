@@ -1,3 +1,8 @@
+.MiniCardInfo{
+    width:95%;
+    min-height: 60vh    ;
+    margin: 50px auto;
+}
 
 .adminTable svg{
 color:black;

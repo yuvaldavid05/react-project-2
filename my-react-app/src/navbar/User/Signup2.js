@@ -10,8 +10,6 @@ import { JOI_HEBREW } from '../../joi-hebrew';
 import { useNavigate } from 'react-router-dom';
 
 
-
-
 function Signup() {
     const [formData, setFormData] = useState({
         firstName: "",

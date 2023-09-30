@@ -1,21 +1,13 @@
-import React, { useContext, useEffect, useState } from 'react';
+import './AdminTable.css'
+import React, { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
-import { AiFillDelete, AiOutlineDelete } from 'react-icons/ai';
-import { MdDeleteOutline } from 'react-icons/md';
-import { RiEditBoxLine } from "react-icons/ri";
-import { Link } from 'react-router-dom';
-import './AdminManagement.css';
+import { AiFillDelete } from 'react-icons/ai';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Nav from 'react-bootstrap/Nav';
 
-
-
-
 function AdminTable() {
     const [clients, setClients] = useState([]);
-
-
 
     const structureAdmin = [
         { name: 'firstName', type: 'text', label: 'שם פרטי', business: true, block: false, sm: '4' },
@@ -60,9 +52,6 @@ function AdminTable() {
             });
     }
 
-    //     switch () {
-    //         case x
-    // }
     return (
 
         <Card className='MiniCardInfo'>
