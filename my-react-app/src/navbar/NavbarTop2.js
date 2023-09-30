@@ -13,6 +13,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Col from 'react-bootstrap/esm/Col';
 import Image from 'react-bootstrap/esm/Image';
 import SearchBar from './Searchbar';
+import ButtonDarkMode from '../compoents/ButtonDarkMode';
 
 
 export const RoleTypes = {
@@ -103,6 +104,7 @@ export default function NavbarTop() {
                         </Nav>}
 
                     <SearchBar />
+                    <ButtonDarkMode />
                 </Navbar.Collapse>
             </Container>
         </Navbar >

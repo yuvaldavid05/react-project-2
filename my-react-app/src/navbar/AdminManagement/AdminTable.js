@@ -76,9 +76,9 @@ function AdminTable() {
                 </Nav>
             </Card.Header>
             <Card.Body>
-                <Card.Title>כל הלקוחות</Card.Title>
+                <Card.Title style={{ fontSize: '30px' }}>כל הלקוחות</Card.Title>
                 <Card.Text>
-                    -
+                    <br></br>
                     <Table responsive className='adminTable'>
                         <thead>
                             <tr>
@@ -87,7 +87,7 @@ function AdminTable() {
                                     <th key={i}>{str.label}</th>
                                 )
                                 )}
-                                {/* <th>עריכה</th> */}
+
                                 <th>מחיקה</th>
                             </tr>
                         </thead>
@@ -95,7 +95,7 @@ function AdminTable() {
                             {clients.map((client, i) => (
 
                                 <tr key={i}>
-                                    <th></th>
+                                    <th>{i + 1}</th>
                                     {structureAdmin.map((str2, index) => (
 
                                         str2.type === 'boolean' ?
@@ -106,11 +106,6 @@ function AdminTable() {
 
                                     ))}
                                     <>
-                                        {/* <td>
-                                            <Link to={`/admin/clients/${client.id}`}>
-                                                <RiEditBoxLine />
-                                            </Link>
-                                        </td> */}
                                         <td onClick={() => removeClient(client.id)}>
                                             <AiFillDelete />
                                         </td>

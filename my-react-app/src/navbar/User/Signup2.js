@@ -32,7 +32,6 @@ function Signup() {
     });
 
     const [errors, setErrors] = useState({});
-    const [isValid, setIsValid] = useState(false);
     const { setLoader, snackbarOn } = useContext(GeneralContext);
     const navigate = useNavigate();
 
@@ -103,9 +102,10 @@ function Signup() {
                 err[id] = error.message;
             }
 
-            setIsValid(false);
+
         } else {
-            setIsValid(true);
+
+
         }
 
         setFormData(obj);
@@ -177,12 +177,12 @@ function Signup() {
 
 
 
-                <Button variant="primary" type="submit" >
+                <Button variant="primary" type="submit">
                     הירשם
                 </Button>
             </Form>
         </div >
-        // disabled={!isValid}
+
     );
 }
 
