@@ -1,4 +1,3 @@
-// import './Cards.css';
 import './CardStructure.css';
 import Card from 'react-bootstrap/Card';
 import { BiSolidEditAlt } from "react-icons/bi";
@@ -58,15 +57,29 @@ function CardStructure({ card, pathPage }) {
         if (!window.confirm("למחוק פריט זה?")) {
             return;
         } else {
-            setLoader(true);
-            fetch(`https://api.shipap.co.il/business/cards/${id}?token=d2960ef2-3431-11ee-b3e9-14dda9d4a5f0`, {
-                credentials: 'include',
-                method: 'DELETE',
-            })
-                .then(() => {
-                    setCards(cards.filter(x => x.id !== id));
-                    snackbarOn("פריט זה נמחק");
-                }).finally(() => setLoader(false))
+
+            if (roleType === RoleTypes.admin) {
+                setLoader(true);
+                fetch(`https://api.shipap.co.il/admin/cards/${id}?token=d2960ef2-3431-11ee-b3e9-14dda9d4a5f0`, {
+                    credentials: 'include',
+                    method: 'DELETE',
+                })
+                    .then(() => {
+                        setCards(cards.filter(x => x.id !== id));
+                        snackbarOn("פריט זה נמחק");
+                    }).finally(() => setLoader(false));
+
+            } else {
+                setLoader(true);
+                fetch(`https://api.shipap.co.il/business/cards/${id}?token=d2960ef2-3431-11ee-b3e9-14dda9d4a5f0`, {
+                    credentials: 'include',
+                    method: 'DELETE',
+                })
+                    .then(() => {
+                        setCards(cards.filter(x => x.id !== id));
+                        snackbarOn("פריט זה נמחק");
+                    }).finally(() => setLoader(false));
+            }
         }
     }
 

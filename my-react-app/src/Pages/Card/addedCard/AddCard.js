@@ -15,9 +15,11 @@ function AddCard() {
     const { id } = useParams();
     const [formDataCard, setFormDataCard] = useState({});
     const [errorsCard, setErrorsCard] = useState({});
-    const [isValidCard, setIsValidCard] = useState(false);
+    // const [isValidCard, setIsValidCard] = useState(false);
     const { setLoader, snackbarOn } = useContext(GeneralContext);
     const navigate = useNavigate();
+
+
 
 
     const structureNewCard = [
@@ -27,8 +29,8 @@ function AddCard() {
         { name: 'phone', type: 'tel', label: 'טלפון', required: true, block: false, sm: '6' },
         { name: 'email', type: 'email', label: 'אימייל', required: true, block: false, sm: '6' },
         { name: 'web', type: 'text', label: 'אתר', required: false, block: true, sm: '4' },
-        { name: 'imgUrl', type: 'text', label: 'קישור לתמונה', required: false, block: false, sm: '4' },
-        { name: 'imgAlt', type: 'text', label: 'תיאור תמונה', required: false, block: false, sm: '4' },
+        { name: 'imgUrl', type: 'text', label: 'קישור לתמונה', required: true, block: false, sm: '4' },
+        { name: 'imgAlt', type: 'text', label: 'תיאור תמונה', required: true, block: false, sm: '4' },
         { name: 'state', type: 'text', label: 'מחוז', required: false, block: false, sm: '6' },
         { name: 'country', type: 'text', label: 'מדינה', required: true, block: false, sm: '6' },
         { name: 'city', type: 'text', label: 'עיר', required: true, block: false, sm: '4' },
@@ -105,12 +107,9 @@ function AddCard() {
                 err[id] = error.message;
             }
 
-            // setIsValidCard(false);
 
-        } else {
-            // setIsValidCard(true);
+
         }
-
         setFormDataCard(obj);
         setErrorsCard(err);
     };
@@ -127,14 +126,13 @@ function AddCard() {
             body: JSON.stringify(formDataCard),
         })
             .then(() => {
-                // console.log(data);
 
                 if (formDataCard.id) {
                     snackbarOn('הכרטיס עודכן בהצלחה');
                 } else {
                     snackbarOn('הכרטיס נוסף בהצלחה');
                 }
-                // setCards(data);
+
                 navigate('/');
 
 
@@ -164,9 +162,8 @@ function AddCard() {
                                 <Form.Label name={sNewCard.name}> {sNewCard.required ? sNewCard.label + ' *' : sNewCard.label}</Form.Label>
                                 <Form.Control placeholder={sNewCard.label} id={sNewCard.name} type={sNewCard.type} required={sNewCard.required} value={formDataCard[sNewCard.name]} className={sNewCard.required ? (errorsCard[sNewCard.name] ? 'fieldError' : '') : ''} onChange={handleInputChange} />
 
-                                {sNewCard.required ? (errorsCard[sNewCard.name] ? <div className='fieldErrorSignup'>{errorsCard[sNewCard.name]}</div> : '') : ''}
+                                {sNewCard.required ? (errorsCard[sNewCard.name] ? <div className='fieldErrorAddCard'>{errorsCard[sNewCard.name]}</div> : '') : ''}
                             </Col>
-
                         </>
                     ))}
                 </Row >

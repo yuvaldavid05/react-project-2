@@ -18,9 +18,6 @@ function CardPage() {
     const { setLoader } = useContext(GeneralContext);
 
 
-
-    const defaultImage = 'https://i.pinimg.com/564x/18/2d/58/182d58a899c4f5403900538636913d65.jpg';
-
     useEffect(() => {
         setLoader(true);
         fetch(`https://api.shipap.co.il/cards/${id}?token=d2960ef2-3431-11ee-b3e9-14dda9d4a5f0`, {
@@ -29,7 +26,6 @@ function CardPage() {
             .then(res => res.json())
             .then(data => {
                 setCardFullPage(data);
-                console.log(cardFullPage);
             }).finally(() => setLoader(false))
     }, [])
 
@@ -50,7 +46,7 @@ function CardPage() {
             <Container>
                 <Row>
                     <Col md={6} style={{ margin: '0', padding: '0' }}>
-                        <div className='headerCardPage' style={{ backgroundImage: `url(${cardFullPage.imgUrl})` || defaultImage }}>
+                        <div className='headerCardPage' style={{ backgroundImage: `url(${cardFullPage.imgUrl})` }}>
                             <h2>{cardFullPage.title}</h2>
                         </div>
                     </Col>

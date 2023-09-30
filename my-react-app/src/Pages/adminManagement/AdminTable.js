@@ -48,7 +48,6 @@ function AdminTable() {
         })
             .then(() => {
                 setClients(clients.filter(c => c.id !== clientdId));
-
             });
     }
 

@@ -3,11 +3,18 @@
     height: 50px;
     margin: auto;
     position: fixed;
-    bottom: 12%;
     left: 50px;
+    bottom: 12%;
     z-index: 5;
     background-color: rgba(19, 18, 18, 0.941);
     border: none;
     border-radius: 3px;
     color:whitesmoke;
 }
+
+@media (max-width: 900px) {
+    #frameSnackbar .alert-dark{
+        width:80%;
+        left:15px;
+    }
+  }

@@ -1,5 +1,4 @@
 .cardFrame{
-    /* width: 18rem; */
     width:250px;
     min-height: 200px;
     margin: 10px 20px ;
@@ -38,14 +37,4 @@
     
 }
 
-
-/* 
-.cardLink svg.liked{
-    color: red;
-}
-
-.cardLink svg.unlike{
-    color:rgb(60, 170, 106) ;
-
-} */
 

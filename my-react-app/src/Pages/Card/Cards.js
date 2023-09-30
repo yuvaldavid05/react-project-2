@@ -31,7 +31,7 @@ function Cards() {
 
             </Row>
 
-            {((roleType === RoleTypes.admin || roleType === RoleTypes.business)) &&
+            {roleType === RoleTypes.business &&
                 <div className='addCardIcon'>
                     <Link to="/business/cards/new">
                         +
