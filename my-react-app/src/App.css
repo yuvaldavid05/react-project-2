@@ -1,6 +1,5 @@
 .App {
   min-height: 100vh;
-  /* direction: rtl; */
   background-color: #282c34;
   text-align: center;
   position: relative;
@@ -17,18 +16,6 @@
   z-index: 2;
 }
 
-/* 
-main{
-  padding: 0 25px;
-} */
-/* 
-main h1{
-  margin:30px;
-  padding-bottom: 12px;
-  color: azure;
-  font-size: 25px;
-} */
-
 footer.fot{
   min-width: 100%;
   background-color: rgb(202, 202, 176);
@@ -37,7 +24,6 @@ footer.fot{
   margin: 0;
   padding:0;
   z-index: 3;
-  /* box-shadow: 0 0 3px 0 whitesmoke; */
 }
 
 
