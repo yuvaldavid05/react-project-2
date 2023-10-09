@@ -15,7 +15,6 @@ function AddCard() {
     const { id } = useParams();
     const [formDataCard, setFormDataCard] = useState({});
     const [errorsCard, setErrorsCard] = useState({});
-    // const [isValidCard, setIsValidCard] = useState(false);
     const { setLoader, snackbarOn } = useContext(GeneralContext);
     const navigate = useNavigate();
 

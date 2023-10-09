@@ -22,7 +22,7 @@ function FavoriteCards() {
                 setFavoriteCards(data);
 
             }).finally(() => setLoader(false));
-    }, [])
+    }, [setLoader])
 
     return (
         <div className="favoriteCardsFrame">
